@@ -69,9 +69,9 @@ def main():
             raise SystemExit(f'Output directory already exists and is nonempty: {out}')
         out.mkdir(parents=True, exist_ok=True)
         dirs=[]
-        for fam in cfg.get('families',[]):
+        for slot, fam in enumerate(cfg.get('families',[])):
             famdir=out/f'_family_{fam}'; dirs.append(famdir)
-            subcfg=dict(cfg); subcfg['families']=[fam]
+            subcfg=dict(cfg); subcfg['families']=[fam]; subcfg['family_seed_slots']={fam: slot}
             cfgpath=out/f'_config_{fam}.json'; cfgpath.write_text(json.dumps(subcfg,indent=2)+'\n')
             cmd=[sys.executable,str(ROOT/'run_ft_repair.py'),'all','--config',str(cfgpath),'--out',str(famdir)]
             print('FT REPAIR SPLIT',fam,flush=True)

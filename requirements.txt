@@ -1,2 +1,3 @@
 numpy==2.3.5
 pytest==9.0.2
+stim>=1.14  # independent verifier cross-check: tools/stim_xcheck.py

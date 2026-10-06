@@ -159,7 +159,10 @@ def run_all(project_root: Path,cfg:dict,out_dir:Path):
 
     all_r2=[]; all_r1=[]; all_s2=[]; all_sp=[]; all_s1=[]; all_m=[]; families={}
     for fi,fam in enumerate(fams):
-        batch=sample_hardware_contexts(nctx,seed+1000*fi,fam)
+        # Split mode: keep the seed slot the family has in the full list
+        # (previously every split family got slot 0 -> identical base contexts).
+        slot=int(cfg.get('family_seed_slots',{}).get(fam,fi))
+        batch=sample_hardware_contexts(nctx,seed+1000*slot,fam)
         fr2=[];fr1=[];fs2=[];fsp=[];fs1=[];fm=[]
         for ci in range(nctx):
             ctx=batch.context(ci)

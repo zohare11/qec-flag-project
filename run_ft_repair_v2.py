@@ -55,8 +55,8 @@ def main():
         p=run_all(ROOT,cfg,out);print(f'DONE repair v2: {out} ({p["elapsed_seconds"]:.2f}s)');return
     # Family-isolated split to bound memory and make long runs restartable.
     out.mkdir(parents=True,exist_ok=True);family_dirs=[];payloads=[]
-    for fam in cfg.get('families',[]):
-        fd=out/f'_family_{fam}';family_dirs.append(fd);subcfg=dict(cfg);subcfg['families']=[fam]
+    for slot,fam in enumerate(cfg.get('families',[])):
+        fd=out/f'_family_{fam}';family_dirs.append(fd);subcfg=dict(cfg);subcfg['families']=[fam];subcfg['family_seed_slots']={fam:slot}
         cp=out/f'_config_{fam}.json';cp.write_text(json.dumps(subcfg,indent=2)+'\n')
         print('FT REPAIR V2 SPLIT',fam,flush=True)
         subprocess.run([sys.executable,str(ROOT/'run_ft_repair_v2.py'),'all','--config',str(cp),'--out',str(fd)],check=True,cwd=ROOT)

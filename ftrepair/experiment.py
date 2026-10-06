@@ -146,7 +146,10 @@ def run_all(project_root: Path, cfg: dict, out_dir: Path):
     scheduling_rows: list[dict] = []
 
     for fi, fam in enumerate(families):
-        batch = sample_hardware_contexts(nctx, seed + 1000 * fi, fam)
+        # In split mode each subprocess sees one family; family_seed_slots keeps
+        # the seed it would have had in a combined run (fixes identical contexts).
+        slot = int(cfg.get('family_seed_slots', {}).get(fam, fi))
+        batch = sample_hardware_contexts(nctx, seed + 1000 * slot, fam)
         fam_r = []; fam_s = []
         for ci in range(nctx):
             ctx = batch.context(ci)
