@@ -1,0 +1,28 @@
+{
+  "phase3A": {
+    "candidate_schedules": 360,
+    "certified_by_kind": {
+      "A_only": 96
+    },
+    "certified_schedules": 96,
+    "fingerprint": "65b11db67a6806bf807571db946f993b3e364c09153bcfdddda6e13e275b80b1",
+    "mode": "single_A",
+    "representative_dense_ideal_max_error": 0.0,
+    "risk_count_dtype": "uint8",
+    "risk_count_max": 2
+  },
+  "phase3B": {
+    "candidate_schedules": 10800,
+    "certified_by_kind": {
+      "A_and_B": 4704,
+      "A_only": 96,
+      "B_only": 96
+    },
+    "certified_schedules": 4896,
+    "fingerprint": "494d2ecebe8138a1cfabe7eadfcdc23aeb0fdf4e1061605041c10436c05fa04a",
+    "mode": "expanded",
+    "representative_dense_ideal_max_error": 0.0,
+    "risk_count_dtype": "uint8",
+    "risk_count_max": 4
+  }
+}

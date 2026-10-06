@@ -1,0 +1,12 @@
+{
+  "seed": 10201,
+  "contexts_per_family": 1,
+  "search_budget": 4,
+  "beam_width": 6,
+  "rounds": 3,
+  "p": [0.0002],
+  "shots": 500,
+  "families": ["hw_id"],
+  "repeated_methods": ["serialized", "ancilla_overlap"],
+  "detector_reference_p": 0.0002
+}

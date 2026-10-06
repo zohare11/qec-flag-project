@@ -1,0 +1,21 @@
+{
+  "name": "phase2_smoke",
+  "train_contexts": 256,
+  "validation_contexts": 96,
+  "test_contexts": 128,
+  "data_seed_base": 52001,
+  "training_regimes": ["narrow", "domain_randomized"],
+  "test_families": ["narrow", "broad_shift", "ood_edge_hotspot", "ood_flag_hotspot", "ood_readout_hotspot", "ood_pauli_sparse"],
+  "training_seeds": [0],
+  "reinforce_updates": 250,
+  "supervised_updates": 250,
+  "batch_size": 32,
+  "hidden": 64,
+  "reinforce_learning_rate": 0.003,
+  "supervised_learning_rate": 0.003,
+  "regression_learning_rate": 0.002,
+  "entropy_coefficient": 0.01,
+  "label_smoothing": 0.02,
+  "log_every": 50,
+  "search_budget": 16
+}

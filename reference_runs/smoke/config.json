@@ -1,0 +1,27 @@
+{
+  "name": "smoke",
+  "train_contexts": 128,
+  "validation_contexts": 64,
+  "test_contexts": 96,
+  "data_seeds": {
+    "train": 11101,
+    "validation": 12202,
+    "test": 13303,
+    "shift": 14404
+  },
+  "training_seeds": [
+    0
+  ],
+  "updates": 300,
+  "batch_size": 32,
+  "hidden": 64,
+  "learning_rate": 0.003,
+  "entropy_coefficient": 0.01,
+  "log_every": 50,
+  "search_budget": 16,
+  "noise_shots": 50000,
+  "noise_p": [
+    0.01,
+    0.02
+  ]
+}

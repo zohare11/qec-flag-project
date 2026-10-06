@@ -1,0 +1,19 @@
+{
+  "families": ["hw_id", "ood_edge_hotspot", "ood_logical_shift", "ood_mixed"],
+  "contexts_per_family": 1,
+  "defect_counts": [1, 2, 3],
+  "routing_cases_per_defect_count": 2,
+  "mutation_bases": 6,
+  "routing_max_edits": 5,
+  "routing_max_verifier_calls": 64,
+  "witness_check_limit": 5,
+  "alternatives_per_check": 6,
+  "scheduling_cases": 2,
+  "schedule_methods": ["shortest_greedy", "asap"],
+  "schedule_max_constraints": 15,
+  "schedule_max_verifier_calls": 28,
+  "run_pure_hittingset_ablation": true,
+  "pure_hittingset_max_calls": 10,
+  "mixed_cases": 2,
+  "seed": 11101
+}

@@ -1,0 +1,90 @@
+ENVIRONMENT
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "executable": "/opt/pyvenv/bin/python",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "project": "/mnt/data/qec_flag_project",
+  "packages": {
+    "numpy": "2.3.5",
+    "pytest": "9.0.2"
+  },
+  "inside_virtual_environment": true
+}
+
+RUNNING UNIT TESTS
+........................................................................ [ 18%]
+........................................................................ [ 36%]
+........................................................................ [ 54%]
+........................................................................ [ 72%]
+........................................................................ [ 90%]
+.....................................                                    [100%]
+397 passed in 2.82s
+
+VERIFY 90/360 ideal maps and dense fault cross-checks
+VERIFY 180/360 ideal maps and dense fault cross-checks
+VERIFY 270/360 ideal maps and dense fault cross-checks
+VERIFY 360/360 ideal maps and dense fault cross-checks
+VERIFICATION PASSED
+{
+  "candidate_schedules": 360,
+  "correct_ideal_instruments": 360,
+  "certified_schedules": 96,
+  "dense_single_fault_crosschecks": 33840,
+  "faults_per_six_cnot_schedule": 94,
+  "single_incoming_data_errors_per_schedule": 21,
+  "catalog_fingerprint": "3c1c3cfab00e61a7fde32946c4bf051fa5ee2f7e4ea57b58413017435d574d67",
+  "negative_controls": {
+    "bare_ancilla_rejected": true,
+    "misplaced_flag_rejected": true,
+    "missing_data_coupling_rejected": true
+  },
+  "elapsed_seconds": 2.347069132999991,
+  "scope": "One Steane Z-check; independent stochastic Pauli gate/preparation/readout faults; ideal final recovery."
+}
+DIAGNOSIS
+{
+  "split": "validation only",
+  "best_fixed_trained_schedule": "F1302F",
+  "distinct_oracle_argmin_labels": 22,
+  "fixed_matches_oracle_cases": 7,
+  "cases": 64,
+  "fixed_mean_relative_regret": 0.4797110711279622,
+  "nontriviality_condition": true,
+  "interpretation": "A gap motivates conditional choice in this finite pilot; it does not prove a need for RL."
+}
+TRAIN seed=0 update=1/300 reward=0.127 validation_regret=86.61%
+TRAIN seed=0 update=50/300 reward=0.203 validation_regret=53.78%
+TRAIN seed=0 update=100/300 reward=0.197 validation_regret=39.47%
+TRAIN seed=0 update=150/300 reward=0.230 validation_regret=32.27%
+TRAIN seed=0 update=200/300 reward=0.217 validation_regret=34.09%
+TRAIN seed=0 update=250/300 reward=0.408 validation_regret=28.23%
+TRAIN seed=0 update=300/300 reward=0.416 validation_regret=28.74%
+
+EVALUATION test: mean C2 / relative regret / exact-oracle matches
+  reference            3.86305 / 121.55% /   0.0%
+  best_fixed_train     2.65116 /  51.09% /   2.1%
+  exhaustive_oracle    1.84917 /   0.00% / 100.0%
+  random_search        2.08830 /  14.03% /  15.6%
+  greedy_search        2.22704 /  22.37% /   5.2%
+  learned_seed0        2.36519 /  32.82% /   8.3%
+
+EVALUATION shift: mean C2 / relative regret / exact-oracle matches
+  reference            6.44806 / 257.02% /   0.0%
+  best_fixed_train     3.95156 / 111.17% /   8.3%
+  exhaustive_oracle    2.19138 /   0.00% / 100.0%
+  random_search        2.56670 /  20.28% /  15.6%
+  greedy_search        2.83470 /  37.32% /   7.3%
+  learned_seed0        3.06979 /  55.04% /  13.5%
+NOISE reference schedule=0F12F3 p=0.01 shots=50000
+NOISE best_fixed_train schedule=F1302F p=0.01 shots=50000
+NOISE learned_first_seed schedule=F3120F p=0.01 shots=50000
+NOISE exhaustive_oracle schedule=F0312F p=0.01 shots=50000
+NOISE reference schedule=0F12F3 p=0.02 shots=50000
+NOISE best_fixed_train schedule=F1302F p=0.02 shots=50000
+NOISE learned_first_seed schedule=F3120F p=0.02 shots=50000
+NOISE exhaustive_oracle schedule=F0312F p=0.02 shots=50000
+NOISE DIAGNOSTICS COMPLETE. See noise.json for counts, confidence intervals, and model bounds.
+REPORT: /mnt/data/qec_flag_project/runs/smoke_reference_v1/summary.md
+
+DONE all: /mnt/data/qec_flag_project/runs/smoke_reference_v1 (7.34 seconds)

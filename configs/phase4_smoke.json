@@ -1,0 +1,23 @@
+{
+  "training_seeds": [0],
+  "data_seed": 4100,
+  "train_contexts": 128,
+  "hidden": 96,
+  "learning_rate": 0.003,
+  "entropy": 0.015,
+  "entropy_exact": 0.008,
+  "value_coefficient": 0.5,
+  "proxy_updates": 80,
+  "proxy_batch": 24,
+  "exact_updates": 4,
+  "exact_batch": 2,
+  "log_every": 20,
+  "test_families": ["round_id", "ood_flagA_bad", "ood_flagB_bad", "ood_both_flags_clean"],
+  "test_contexts": 3,
+  "search_budget": 4,
+  "evaluation_seed": 4401,
+  "test_seed": 4402,
+  "noise_p": [0.0005, 0.001],
+  "noise_shots": 5000,
+  "noise_seed": 4403
+}

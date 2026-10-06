@@ -1,0 +1,139 @@
+ENVIRONMENT
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "executable": "/opt/pyvenv/bin/python",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "project": "/mnt/data/qec_flag_project",
+  "packages": {
+    "numpy": "2.3.5",
+    "pytest": "9.0.2"
+  },
+  "inside_virtual_environment": true
+}
+
+RUNNING UNIT TESTS
+........................................................................ [ 18%]
+........................................................................ [ 36%]
+........................................................................ [ 54%]
+........................................................................ [ 72%]
+........................................................................ [ 90%]
+.....................................                                    [100%]
+397 passed in 2.74s
+
+VERIFY 90/360 ideal maps and dense fault cross-checks
+VERIFY 180/360 ideal maps and dense fault cross-checks
+VERIFY 270/360 ideal maps and dense fault cross-checks
+VERIFY 360/360 ideal maps and dense fault cross-checks
+VERIFICATION PASSED
+{
+  "candidate_schedules": 360,
+  "correct_ideal_instruments": 360,
+  "certified_schedules": 96,
+  "dense_single_fault_crosschecks": 33840,
+  "faults_per_six_cnot_schedule": 94,
+  "single_incoming_data_errors_per_schedule": 21,
+  "catalog_fingerprint": "3c1c3cfab00e61a7fde32946c4bf051fa5ee2f7e4ea57b58413017435d574d67",
+  "negative_controls": {
+    "bare_ancilla_rejected": true,
+    "misplaced_flag_rejected": true,
+    "missing_data_coupling_rejected": true
+  },
+  "elapsed_seconds": 2.3364885659999572,
+  "scope": "One Steane Z-check; independent stochastic Pauli gate/preparation/readout faults; ideal final recovery."
+}
+DIAGNOSIS
+{
+  "split": "validation only",
+  "best_fixed_trained_schedule": "F3201F",
+  "distinct_oracle_argmin_labels": 27,
+  "fixed_matches_oracle_cases": 11,
+  "cases": 256,
+  "fixed_mean_relative_regret": 0.5364950152068897,
+  "nontriviality_condition": true,
+  "interpretation": "A gap motivates conditional choice in this finite pilot; it does not prove a need for RL."
+}
+TRAIN seed=0 update=1/1500 reward=0.185 validation_regret=82.23%
+TRAIN seed=0 update=100/1500 reward=0.209 validation_regret=39.01%
+TRAIN seed=0 update=200/1500 reward=0.286 validation_regret=25.27%
+TRAIN seed=0 update=300/1500 reward=0.363 validation_regret=22.16%
+TRAIN seed=0 update=400/1500 reward=0.437 validation_regret=17.60%
+TRAIN seed=0 update=500/1500 reward=0.476 validation_regret=15.35%
+TRAIN seed=0 update=600/1500 reward=0.407 validation_regret=12.80%
+TRAIN seed=0 update=700/1500 reward=0.462 validation_regret=11.66%
+TRAIN seed=0 update=800/1500 reward=0.461 validation_regret=11.97%
+TRAIN seed=0 update=900/1500 reward=0.414 validation_regret=11.38%
+TRAIN seed=0 update=1000/1500 reward=0.470 validation_regret=11.46%
+TRAIN seed=0 update=1100/1500 reward=0.454 validation_regret=10.28%
+TRAIN seed=0 update=1200/1500 reward=0.450 validation_regret=10.53%
+TRAIN seed=0 update=1300/1500 reward=0.436 validation_regret=10.14%
+TRAIN seed=0 update=1400/1500 reward=0.435 validation_regret=9.19%
+TRAIN seed=0 update=1500/1500 reward=0.425 validation_regret=9.07%
+TRAIN seed=1 update=1/1500 reward=0.153 validation_regret=71.97%
+TRAIN seed=1 update=100/1500 reward=0.231 validation_regret=37.42%
+TRAIN seed=1 update=200/1500 reward=0.336 validation_regret=31.40%
+TRAIN seed=1 update=300/1500 reward=0.407 validation_regret=25.68%
+TRAIN seed=1 update=400/1500 reward=0.438 validation_regret=19.64%
+TRAIN seed=1 update=500/1500 reward=0.443 validation_regret=17.19%
+TRAIN seed=1 update=600/1500 reward=0.440 validation_regret=15.17%
+TRAIN seed=1 update=700/1500 reward=0.426 validation_regret=14.23%
+TRAIN seed=1 update=800/1500 reward=0.407 validation_regret=13.74%
+TRAIN seed=1 update=900/1500 reward=0.443 validation_regret=12.02%
+TRAIN seed=1 update=1000/1500 reward=0.491 validation_regret=11.77%
+TRAIN seed=1 update=1100/1500 reward=0.407 validation_regret=11.05%
+TRAIN seed=1 update=1200/1500 reward=0.412 validation_regret=11.51%
+TRAIN seed=1 update=1300/1500 reward=0.427 validation_regret=10.82%
+TRAIN seed=1 update=1400/1500 reward=0.439 validation_regret=10.38%
+TRAIN seed=1 update=1500/1500 reward=0.445 validation_regret=9.71%
+TRAIN seed=2 update=1/1500 reward=0.177 validation_regret=87.89%
+TRAIN seed=2 update=100/1500 reward=0.191 validation_regret=35.42%
+TRAIN seed=2 update=200/1500 reward=0.336 validation_regret=27.88%
+TRAIN seed=2 update=300/1500 reward=0.399 validation_regret=22.86%
+TRAIN seed=2 update=400/1500 reward=0.411 validation_regret=20.99%
+TRAIN seed=2 update=500/1500 reward=0.430 validation_regret=18.46%
+TRAIN seed=2 update=600/1500 reward=0.416 validation_regret=15.55%
+TRAIN seed=2 update=700/1500 reward=0.413 validation_regret=15.46%
+TRAIN seed=2 update=800/1500 reward=0.405 validation_regret=13.29%
+TRAIN seed=2 update=900/1500 reward=0.444 validation_regret=12.53%
+TRAIN seed=2 update=1000/1500 reward=0.432 validation_regret=12.20%
+TRAIN seed=2 update=1100/1500 reward=0.493 validation_regret=11.37%
+TRAIN seed=2 update=1200/1500 reward=0.466 validation_regret=11.43%
+TRAIN seed=2 update=1300/1500 reward=0.478 validation_regret=10.57%
+TRAIN seed=2 update=1400/1500 reward=0.447 validation_regret=11.04%
+TRAIN seed=2 update=1500/1500 reward=0.434 validation_regret=10.78%
+
+EVALUATION test: mean C2 / relative regret / exact-oracle matches
+  reference            3.76294 / 118.62% /   0.0%
+  best_fixed_train     2.64534 /  47.35% /   2.9%
+  exhaustive_oracle    1.85258 /   0.00% / 100.0%
+  random_search        2.08006 /  13.57% /  16.6%
+  greedy_search        2.21972 /  22.33% /   4.3%
+  learned_seed0        2.04168 /  10.69% /  30.3%
+  learned_seed1        2.02494 /   9.75% /  28.9%
+  learned_seed2        2.05058 /  11.64% /  25.8%
+
+EVALUATION shift: mean C2 / relative regret / exact-oracle matches
+  reference            6.51956 / 326.14% /   0.2%
+  best_fixed_train     4.08772 / 123.30% /   5.3%
+  exhaustive_oracle    2.21416 /   0.00% / 100.0%
+  random_search        2.57428 /  22.58% /  18.4%
+  greedy_search        2.80254 /  37.49% /   3.7%
+  learned_seed0        2.64642 /  22.57% /  19.9%
+  learned_seed1        2.68156 /  25.56% /  22.3%
+  learned_seed2        2.73564 /  28.57% /  20.3%
+NOISE reference schedule=0F12F3 p=0.005 shots=250000
+NOISE best_fixed_train schedule=F3201F p=0.005 shots=250000
+NOISE learned_first_seed schedule=F2031F p=0.005 shots=250000
+NOISE exhaustive_oracle schedule=F2031F p=0.005 shots=250000
+NOISE reference schedule=0F12F3 p=0.01 shots=250000
+NOISE best_fixed_train schedule=F3201F p=0.01 shots=250000
+NOISE learned_first_seed schedule=F2031F p=0.01 shots=250000
+NOISE exhaustive_oracle schedule=F2031F p=0.01 shots=250000
+NOISE reference schedule=0F12F3 p=0.02 shots=250000
+NOISE best_fixed_train schedule=F3201F p=0.02 shots=250000
+NOISE learned_first_seed schedule=F2031F p=0.02 shots=250000
+NOISE exhaustive_oracle schedule=F2031F p=0.02 shots=250000
+NOISE DIAGNOSTICS COMPLETE. See noise.json for counts, confidence intervals, and model bounds.
+REPORT: /mnt/data/qec_flag_project/runs/full_reference_v1/summary.md
+
+DONE all: /mnt/data/qec_flag_project/runs/full_reference_v1 (16.69 seconds)

@@ -1,0 +1,9 @@
+{
+  "seed": 0,
+  "model_file": "/mnt/data/qec_flag_project/runs/smoke_reference_v1/policy_seed0.npz",
+  "best_validation_regret": 0.28226620571966643,
+  "training_seconds": 0.2513854819999324,
+  "sampled_action_reward_evaluations": 9600,
+  "reference_control_variate_evaluations": 9600,
+  "test_used_for_training_or_checkpoint_selection": false
+}

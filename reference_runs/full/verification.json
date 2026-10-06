@@ -1,0 +1,16 @@
+{
+  "candidate_schedules": 360,
+  "correct_ideal_instruments": 360,
+  "certified_schedules": 96,
+  "dense_single_fault_crosschecks": 33840,
+  "faults_per_six_cnot_schedule": 94,
+  "single_incoming_data_errors_per_schedule": 21,
+  "catalog_fingerprint": "3c1c3cfab00e61a7fde32946c4bf051fa5ee2f7e4ea57b58413017435d574d67",
+  "negative_controls": {
+    "bare_ancilla_rejected": true,
+    "misplaced_flag_rejected": true,
+    "missing_data_coupling_rejected": true
+  },
+  "elapsed_seconds": 2.3364885659999572,
+  "scope": "One Steane Z-check; independent stochastic Pauli gate/preparation/readout faults; ideal final recovery."
+}

@@ -1,0 +1,2825 @@
+{
+  "metadata": {
+    "schema": 1,
+    "source_phase7_catalog_size": 74,
+    "catalog_size": 74,
+    "prep_ns": 100.0,
+    "meas_ns": 500.0,
+    "idle_model": "explicit per serialized prep/CX/meas interval on every inactive persistent data qubit",
+    "certification": "C1=0, zero single-fault conflicts/failures, zero incoming-single-error failures"
+  },
+  "entries": [
+    {
+      "actions": [
+        79,
+        79,
+        28,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B3021B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 134,
+      "nominal_duration_ns": 32475.211977022595,
+      "fault_outcomes": 2718,
+      "physical_fault_locations": 386,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 35637.36420688511,
+      "phase8_idle_locations": 978,
+      "phase8_fault_outcomes": 4968
+    },
+    {
+      "actions": [
+        79,
+        79,
+        18,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B3201B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 134,
+      "nominal_duration_ns": 32475.211977022595,
+      "fault_outcomes": 2718,
+      "physical_fault_locations": 386,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 35637.36420688511,
+      "phase8_idle_locations": 978,
+      "phase8_fault_outcomes": 4968
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        79,
+        28
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3021B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "source": "single_check_variant",
+      "native_cx": 134,
+      "nominal_duration_ns": 32475.211977022598,
+      "fault_outcomes": 2718,
+      "physical_fault_locations": 386,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 35637.36420688512,
+      "phase8_idle_locations": 978,
+      "phase8_fault_outcomes": 4968
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        79,
+        18
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3201B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "source": "single_check_variant",
+      "native_cx": 134,
+      "nominal_duration_ns": 32475.211977022598,
+      "fault_outcomes": 2718,
+      "physical_fault_locations": 386,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 35637.36420688512,
+      "phase8_idle_locations": 978,
+      "phase8_fault_outcomes": 4968
+    },
+    {
+      "actions": [
+        79,
+        77,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B1023B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.61816094052,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        69,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B1203B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.61816094052,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        77,
+        77,
+        77,
+        77,
+        77,
+        77
+      ],
+      "labels": [
+        "B1023B",
+        "B1023B",
+        "B1023B",
+        "B1023B",
+        "B1023B",
+        "B1023B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        69,
+        69,
+        69,
+        69,
+        69,
+        69
+      ],
+      "labels": [
+        "B1203B",
+        "B1203B",
+        "B1203B",
+        "B1203B",
+        "B1203B",
+        "B1203B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        76,
+        76,
+        76,
+        76,
+        76,
+        76
+      ],
+      "labels": [
+        "B3021B",
+        "B3021B",
+        "B3021B",
+        "B3021B",
+        "B3021B",
+        "B3021B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360484,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        66,
+        66,
+        66,
+        66,
+        66,
+        66
+      ],
+      "labels": [
+        "B3201B",
+        "B3201B",
+        "B3201B",
+        "B3201B",
+        "B3201B",
+        "B3201B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        78,
+        78,
+        78,
+        78,
+        78,
+        78
+      ],
+      "labels": [
+        "B3210B",
+        "B3210B",
+        "B3210B",
+        "B3210B",
+        "B3210B",
+        "B3210B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        79,
+        77
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B1023B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        79,
+        69
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B1203B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        79,
+        76
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3021B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        79,
+        66
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3201B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        79,
+        78
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3210B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        77,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B1023B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        69,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B1203B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        76,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3021B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        66,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3201B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        78,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3210B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        77,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B1023B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        69,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B1203B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        76,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3021B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        66,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3201B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        78,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3210B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        77,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B1023B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        69,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B1203B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        76,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B3021B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        66,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B3201B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        78,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B3210B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        76,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B3021B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        66,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B3201B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        78,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B3210B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        77,
+        79,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B1023B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        69,
+        79,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B1203B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360482,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        76,
+        79,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B3021B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        66,
+        79,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B3201B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        78,
+        79,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B3210B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 142,
+      "nominal_duration_ns": 34299.618160940525,
+      "fault_outcomes": 2838,
+      "physical_fault_locations": 394,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 37481.29550360483,
+      "phase8_idle_locations": 1032,
+      "phase8_fault_outcomes": 5250
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        28,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3021B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 148,
+      "nominal_duration_ns": 36040.8194363641,
+      "fault_outcomes": 2928,
+      "physical_fault_locations": 400,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 38747.32767858456,
+      "phase8_idle_locations": 1074,
+      "phase8_fault_outcomes": 5466
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        79,
+        18,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3201B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 148,
+      "nominal_duration_ns": 36040.8194363641,
+      "fault_outcomes": 2928,
+      "physical_fault_locations": 400,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 38747.32767858456,
+      "phase8_idle_locations": 1074,
+      "phase8_fault_outcomes": 5466
+    },
+    {
+      "actions": [
+        79,
+        28,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B3021B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 148,
+      "nominal_duration_ns": 36040.8194363641,
+      "fault_outcomes": 2928,
+      "physical_fault_locations": 400,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 38747.327678584545,
+      "phase8_idle_locations": 1074,
+      "phase8_fault_outcomes": 5466
+    },
+    {
+      "actions": [
+        79,
+        18,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B3201B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 148,
+      "nominal_duration_ns": 36040.8194363641,
+      "fault_outcomes": 2928,
+      "physical_fault_locations": 400,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 38747.327678584545,
+      "phase8_idle_locations": 1074,
+      "phase8_fault_outcomes": 5466
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        28,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3021B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 148,
+      "nominal_duration_ns": 36112.032243659,
+      "fault_outcomes": 2928,
+      "physical_fault_locations": 400,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39056.61847956401,
+      "phase8_idle_locations": 1074,
+      "phase8_fault_outcomes": 5466
+    },
+    {
+      "actions": [
+        79,
+        79,
+        79,
+        18,
+        79,
+        79
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B3201B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 148,
+      "nominal_duration_ns": 36112.032243659,
+      "fault_outcomes": 2928,
+      "physical_fault_locations": 400,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39056.61847956401,
+      "phase8_idle_locations": 1074,
+      "phase8_fault_outcomes": 5466
+    },
+    {
+      "actions": [
+        28,
+        79,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B3021B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 148,
+      "nominal_duration_ns": 36112.032243659,
+      "fault_outcomes": 2928,
+      "physical_fault_locations": 400,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39056.618479564,
+      "phase8_idle_locations": 1074,
+      "phase8_fault_outcomes": 5466
+    },
+    {
+      "actions": [
+        18,
+        79,
+        79,
+        79,
+        79,
+        79
+      ],
+      "labels": [
+        "B3201B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "single_check_variant",
+      "native_cx": 148,
+      "nominal_duration_ns": 36112.032243659,
+      "fault_outcomes": 2928,
+      "physical_fault_locations": 400,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39056.618479564,
+      "phase8_idle_locations": 1074,
+      "phase8_fault_outcomes": 5466
+    },
+    {
+      "actions": [
+        28,
+        28,
+        28,
+        28,
+        28,
+        28
+      ],
+      "labels": [
+        "B3021B",
+        "B3021B",
+        "B3021B",
+        "B3021B",
+        "B3021B",
+        "B3021B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.0365093888,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.14321204319,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        18,
+        18,
+        18,
+        18,
+        18,
+        18
+      ],
+      "labels": [
+        "B3201B",
+        "B3201B",
+        "B3201B",
+        "B3201B",
+        "B3201B",
+        "B3201B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.0365093888,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.14321204319,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        30,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "labels": [
+        "B3210B",
+        "B3210B",
+        "B3210B",
+        "B3210B",
+        "B3210B",
+        "B3210B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.0365093888,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.1432120432,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        31,
+        31,
+        31,
+        31,
+        31,
+        31
+      ],
+      "labels": [
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B",
+        "B0213B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.03650938881,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.143212043185,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "labels": [
+        "B0231B",
+        "B0231B",
+        "B0231B",
+        "B0231B",
+        "B0231B",
+        "B0231B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.03650938881,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.14321204319,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        29,
+        29,
+        29,
+        29,
+        29,
+        29
+      ],
+      "labels": [
+        "B1023B",
+        "B1023B",
+        "B1023B",
+        "B1023B",
+        "B1023B",
+        "B1023B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.03650938881,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.14321204318,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        23,
+        23,
+        23,
+        23,
+        23,
+        23
+      ],
+      "labels": [
+        "B1032B",
+        "B1032B",
+        "B1032B",
+        "B1032B",
+        "B1032B",
+        "B1032B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.03650938881,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.143212043185,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        21,
+        21,
+        21,
+        21,
+        21,
+        21
+      ],
+      "labels": [
+        "B1203B",
+        "B1203B",
+        "B1203B",
+        "B1203B",
+        "B1203B",
+        "B1203B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.03650938881,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.14321204318,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        19,
+        19,
+        19,
+        19,
+        19,
+        19
+      ],
+      "labels": [
+        "B1230B",
+        "B1230B",
+        "B1230B",
+        "B1230B",
+        "B1230B",
+        "B1230B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.03650938881,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.14321204319,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        22,
+        22,
+        22,
+        22,
+        22,
+        22
+      ],
+      "labels": [
+        "B2031B",
+        "B2031B",
+        "B2031B",
+        "B2031B",
+        "B2031B",
+        "B2031B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 150,
+      "nominal_duration_ns": 37758.03650938881,
+      "fault_outcomes": 2958,
+      "physical_fault_locations": 402,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 39476.14321204319,
+      "phase8_idle_locations": 1092,
+      "phase8_fault_outcomes": 5550
+    },
+    {
+      "actions": [
+        42,
+        42,
+        42,
+        42,
+        42,
+        42
+      ],
+      "labels": [
+        "B3201BAA",
+        "B3201BAA",
+        "B3201BAA",
+        "B3201BAA",
+        "B3201BAA",
+        "B3201BAA"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 162,
+      "nominal_duration_ns": 40238.09847350276,
+      "fault_outcomes": 3402,
+      "physical_fault_locations": 510,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 42028.54579025947,
+      "phase8_idle_locations": 1176,
+      "phase8_fault_outcomes": 5994
+    },
+    {
+      "actions": [
+        45,
+        45,
+        45,
+        45,
+        45,
+        45
+      ],
+      "labels": [
+        "AAB2031B",
+        "AAB2031B",
+        "AAB2031B",
+        "AAB2031B",
+        "AAB2031B",
+        "AAB2031B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 162,
+      "nominal_duration_ns": 40238.09847350277,
+      "fault_outcomes": 3402,
+      "physical_fault_locations": 510,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 42028.54579025946,
+      "phase8_idle_locations": 1176,
+      "phase8_fault_outcomes": 5994
+    },
+    {
+      "actions": [
+        46,
+        46,
+        46,
+        46,
+        46,
+        46
+      ],
+      "labels": [
+        "B2031BAA",
+        "B2031BAA",
+        "B2031BAA",
+        "B2031BAA",
+        "B2031BAA",
+        "B2031BAA"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 162,
+      "nominal_duration_ns": 40238.09847350277,
+      "fault_outcomes": 3402,
+      "physical_fault_locations": 510,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 42028.545790259464,
+      "phase8_idle_locations": 1176,
+      "phase8_fault_outcomes": 5994
+    },
+    {
+      "actions": [
+        41,
+        41,
+        41,
+        41,
+        41,
+        41
+      ],
+      "labels": [
+        "AAB3201B",
+        "AAB3201B",
+        "AAB3201B",
+        "AAB3201B",
+        "AAB3201B",
+        "AAB3201B"
+      ],
+      "hubs": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "source": "homogeneous",
+      "native_cx": 162,
+      "nominal_duration_ns": 40238.098473502774,
+      "fault_outcomes": 3402,
+      "physical_fault_locations": 510,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 42028.545790259464,
+      "phase8_idle_locations": 1176,
+      "phase8_fault_outcomes": 5994
+    },
+    {
+      "actions": [
+        57,
+        57,
+        57,
+        57,
+        57,
+        57
+      ],
+      "labels": [
+        "A0312A",
+        "A0312A",
+        "A0312A",
+        "A0312A",
+        "A0312A",
+        "A0312A"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 178,
+      "nominal_duration_ns": 42703.96980362746,
+      "fault_outcomes": 3378,
+      "physical_fault_locations": 430,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 44306.73461591829,
+      "phase8_idle_locations": 1284,
+      "phase8_fault_outcomes": 6546
+    },
+    {
+      "actions": [
+        49,
+        49,
+        49,
+        49,
+        49,
+        49
+      ],
+      "labels": [
+        "A1302A",
+        "A1302A",
+        "A1302A",
+        "A1302A",
+        "A1302A",
+        "A1302A"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 178,
+      "nominal_duration_ns": 42703.96980362746,
+      "fault_outcomes": 3378,
+      "physical_fault_locations": 430,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 44306.73461591829,
+      "phase8_idle_locations": 1284,
+      "phase8_fault_outcomes": 6546
+    },
+    {
+      "actions": [
+        59,
+        59,
+        59,
+        59,
+        59,
+        59
+      ],
+      "labels": [
+        "A1320A",
+        "A1320A",
+        "A1320A",
+        "A1320A",
+        "A1320A",
+        "A1320A"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 178,
+      "nominal_duration_ns": 42703.96980362746,
+      "fault_outcomes": 3378,
+      "physical_fault_locations": 430,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 44306.734615918285,
+      "phase8_idle_locations": 1284,
+      "phase8_fault_outcomes": 6546
+    },
+    {
+      "actions": [
+        61,
+        61,
+        61,
+        61,
+        61,
+        61
+      ],
+      "labels": [
+        "A0321A",
+        "A0321A",
+        "A0321A",
+        "A0321A",
+        "A0321A",
+        "A0321A"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 178,
+      "nominal_duration_ns": 42703.969803627464,
+      "fault_outcomes": 3378,
+      "physical_fault_locations": 430,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 44306.73461591829,
+      "phase8_idle_locations": 1284,
+      "phase8_fault_outcomes": 6546
+    },
+    {
+      "actions": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "labels": [
+        "A2301A",
+        "A2301A",
+        "A2301A",
+        "A2301A",
+        "A2301A",
+        "A2301A"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 178,
+      "nominal_duration_ns": 42703.969803627464,
+      "fault_outcomes": 3378,
+      "physical_fault_locations": 430,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 44306.7346159183,
+      "phase8_idle_locations": 1284,
+      "phase8_fault_outcomes": 6546
+    },
+    {
+      "actions": [
+        56,
+        56,
+        56,
+        56,
+        56,
+        56
+      ],
+      "labels": [
+        "A2310A",
+        "A2310A",
+        "A2310A",
+        "A2310A",
+        "A2310A",
+        "A2310A"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 178,
+      "nominal_duration_ns": 42703.969803627464,
+      "fault_outcomes": 3378,
+      "physical_fault_locations": 430,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 44306.73461591829,
+      "phase8_idle_locations": 1284,
+      "phase8_fault_outcomes": 6546
+    },
+    {
+      "actions": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
+      "labels": [
+        "B3201BAA",
+        "B3201BAA",
+        "B3201BAA",
+        "B3201BAA",
+        "B3201BAA",
+        "B3201BAA"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 190,
+      "nominal_duration_ns": 45665.30588070879,
+      "fault_outcomes": 3822,
+      "physical_fault_locations": 538,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 47374.055245680385,
+      "phase8_idle_locations": 1368,
+      "phase8_fault_outcomes": 6990
+    },
+    {
+      "actions": [
+        87,
+        87,
+        87,
+        87,
+        87,
+        87
+      ],
+      "labels": [
+        "BBA1302A",
+        "BBA1302A",
+        "BBA1302A",
+        "BBA1302A",
+        "BBA1302A",
+        "BBA1302A"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 190,
+      "nominal_duration_ns": 45665.30588070879,
+      "fault_outcomes": 3822,
+      "physical_fault_locations": 538,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 47374.05524568038,
+      "phase8_idle_locations": 1368,
+      "phase8_fault_outcomes": 6990
+    },
+    {
+      "actions": [
+        83,
+        83,
+        83,
+        83,
+        83,
+        83
+      ],
+      "labels": [
+        "BBA2301A",
+        "BBA2301A",
+        "BBA2301A",
+        "BBA2301A",
+        "BBA2301A",
+        "BBA2301A"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 190,
+      "nominal_duration_ns": 45665.305880708795,
+      "fault_outcomes": 3822,
+      "physical_fault_locations": 538,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 47374.05524568038,
+      "phase8_idle_locations": 1368,
+      "phase8_fault_outcomes": 6990
+    },
+    {
+      "actions": [
+        84,
+        84,
+        84,
+        84,
+        84,
+        84
+      ],
+      "labels": [
+        "A1302ABB",
+        "A1302ABB",
+        "A1302ABB",
+        "A1302ABB",
+        "A1302ABB",
+        "A1302ABB"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 190,
+      "nominal_duration_ns": 45665.3058807088,
+      "fault_outcomes": 3822,
+      "physical_fault_locations": 538,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 47374.05524568038,
+      "phase8_idle_locations": 1368,
+      "phase8_fault_outcomes": 6990
+    },
+    {
+      "actions": [
+        89,
+        89,
+        89,
+        89,
+        89,
+        89
+      ],
+      "labels": [
+        "AAB3201B",
+        "AAB3201B",
+        "AAB3201B",
+        "AAB3201B",
+        "AAB3201B",
+        "AAB3201B"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 190,
+      "nominal_duration_ns": 45665.3058807088,
+      "fault_outcomes": 3822,
+      "physical_fault_locations": 538,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 47374.05524568038,
+      "phase8_idle_locations": 1368,
+      "phase8_fault_outcomes": 6990
+    },
+    {
+      "actions": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "labels": [
+        "A2301ABB",
+        "A2301ABB",
+        "A2301ABB",
+        "A2301ABB",
+        "A2301ABB",
+        "A2301ABB"
+      ],
+      "hubs": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "source": "homogeneous",
+      "native_cx": 190,
+      "nominal_duration_ns": 45665.30588070881,
+      "fault_outcomes": 3822,
+      "physical_fault_locations": 538,
+      "c1": 0.0,
+      "single_fault_conflicts": 0,
+      "single_fault_failures": 0,
+      "incoming_failures": 0,
+      "phase8_duration_ns": 47374.05524568038,
+      "phase8_idle_locations": 1368,
+      "phase8_fault_outcomes": 6990
+    }
+  ]
+}

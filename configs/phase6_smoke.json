@@ -1,0 +1,13 @@
+{
+  "families": ["hw_id"],
+  "contexts_per_family": 1,
+  "search_budget": 8,
+  "max_models": 1,
+  "evaluation_seed": 6201,
+  "test_seed": 6202,
+  "p_ref": 0.0002,
+  "pair_block": 128,
+  "noise_p": [0.0001, 0.0002],
+  "noise_shots": 2000,
+  "noise_seed": 6203
+}

@@ -1,0 +1,12 @@
+{
+  "families": ["hw_id", "ood_hub0_bad", "ood_hub1_bad", "ood_edge_hotspot", "ood_logical_shift", "ood_mixed"],
+  "contexts_per_family": 2,
+  "search_budget": 4,
+  "fixed_train_contexts": 8,
+  "evaluation_seed": 7301,
+  "p_ref": 0.0002,
+  "pair_block": 256,
+  "noise_p": [0.00005, 0.0001, 0.0002, 0.0005],
+  "noise_shots": 10000,
+  "noise_seed": 7302
+}

@@ -1,0 +1,9 @@
+{
+  "seed": 1,
+  "model_file": "/mnt/data/qec_flag_project/runs/full_reference_v1/policy_seed1.npz",
+  "best_validation_regret": 0.09713536047275524,
+  "training_seconds": 1.9063691609999296,
+  "sampled_action_reward_evaluations": 96000,
+  "reference_control_variate_evaluations": 96000,
+  "test_used_for_training_or_checkpoint_selection": false
+}

@@ -1,0 +1,15 @@
+{
+  "seed": 9201,
+  "contexts_per_family": 1,
+  "fixed_train_contexts": 4,
+  "search_budget": 4,
+  "rounds": 3,
+  "p": [0.0001, 0.0002],
+  "shots": 1500,
+  "families": ["hw_id"],
+  "rare_event_families": ["hw_id"],
+  "rare_event_contexts_per_family": 1,
+  "triple_samples": 3000,
+  "pair_block": 64,
+  "detector_reference_p": 0.0002
+}

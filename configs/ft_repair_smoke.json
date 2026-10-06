@@ -1,0 +1,14 @@
+{
+  "seed": 11101,
+  "families": [
+    "hw_id"
+  ],
+  "contexts_per_family": 1,
+  "routing_cases": 2,
+  "scheduling_cases": 2,
+  "schedule_method": "shortest_greedy",
+  "routing_max_edits": 2,
+  "routing_max_verifier_calls": 24,
+  "witness_check_limit": 2,
+  "schedule_max_constraints": 15
+}

@@ -1,0 +1,26 @@
+{
+  "training_seeds": [0, 1, 2],
+  "data_seed": 5100,
+  "train_contexts": 768,
+  "hidden": 128,
+  "learning_rate": 0.0025,
+  "entropy": 0.012,
+  "entropy_exact": 0.006,
+  "value_coefficient": 0.5,
+  "proxy_updates": 650,
+  "proxy_batch": 48,
+  "exact_updates": 24,
+  "exact_batch": 2,
+  "log_every": 100,
+  "test_families": [
+    "hw_id", "ood_hub0_bad", "ood_hub1_bad", "ood_edge_hotspot",
+    "ood_slow_link", "ood_idle_hotspot", "ood_logical_shift", "ood_mixed"
+  ],
+  "test_contexts": 10,
+  "search_budget": 8,
+  "evaluation_seed": 5401,
+  "test_seed": 5402,
+  "noise_p": [0.0002, 0.0005, 0.001],
+  "noise_shots": 40000,
+  "noise_seed": 5403
+}

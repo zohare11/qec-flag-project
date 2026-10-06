@@ -1,0 +1,10 @@
+{
+  "split": "validation only",
+  "best_fixed_trained_schedule": "F1302F",
+  "distinct_oracle_argmin_labels": 22,
+  "fixed_matches_oracle_cases": 7,
+  "cases": 64,
+  "fixed_mean_relative_regret": 0.4797110711279622,
+  "nontriviality_condition": true,
+  "interpretation": "A gap motivates conditional choice in this finite pilot; it does not prove a need for RL."
+}

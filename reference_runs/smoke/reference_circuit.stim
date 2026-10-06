@@ -1,0 +1,11 @@
+# 7 data qubits, syndrome=7, flag=8
+R 7
+RX 8
+CX 0 7
+CX 8 7
+CX 1 7
+CX 2 7
+CX 8 7
+CX 3 7
+M 7
+MX 8

@@ -1,0 +1,205 @@
+{
+  "test": {
+    "contexts": 512,
+    "oracle_distinct_argmin_labels": 33,
+    "best_fixed_train": "F3201F",
+    "oracle_batch_cost_seconds": 0.423203132000026,
+    "policy_batch_inference_seconds": {
+      "learned_seed0": 0.0030078959999855215,
+      "learned_seed1": 0.0009252340000784898,
+      "learned_seed2": 0.0008602480000945434
+    },
+    "methods": {
+      "reference": {
+        "mean_C2": 3.7629376458615496,
+        "mean_relative_regret": 1.186193023436783,
+        "oracle_match_fraction": 0.0,
+        "mean_relative_improvement_over_fixed": -0.5620157962543055,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          -0.62127788604357,
+          -0.5030438345568213
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "best_fixed_train": {
+        "mean_C2": 2.6453361412410485,
+        "mean_relative_regret": 0.4735114069793316,
+        "oracle_match_fraction": 0.029296875,
+        "mean_relative_improvement_over_fixed": 0.0,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.0,
+          0.0
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "exhaustive_oracle": {
+        "mean_C2": 1.852581793758695,
+        "mean_relative_regret": 0.0,
+        "oracle_match_fraction": 1.0,
+        "mean_relative_improvement_over_fixed": 0.27075678817380766,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.25777823015482737,
+          0.2857034637498358
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 96.0
+      },
+      "random_search": {
+        "mean_C2": 2.080062842679565,
+        "mean_relative_regret": 0.13574339275210023,
+        "oracle_match_fraction": 0.166015625,
+        "mean_relative_improvement_over_fixed": 0.1777671726686827,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.16247825013837616,
+          0.19413057177131493
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 16.0
+      },
+      "greedy_search": {
+        "mean_C2": 2.2197231566393425,
+        "mean_relative_regret": 0.22327250148891087,
+        "oracle_match_fraction": 0.04296875,
+        "mean_relative_improvement_over_fixed": 0.11017368558723303,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.0901614155353328,
+          0.1306932001752897
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 16.0
+      },
+      "learned_seed0": {
+        "mean_C2": 2.0416832304015635,
+        "mean_relative_regret": 0.10688708064171476,
+        "oracle_match_fraction": 0.302734375,
+        "mean_relative_improvement_over_fixed": 0.19673228846506696,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.18092133857850698,
+          0.2137049508176591
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "learned_seed1": {
+        "mean_C2": 2.0249437097895067,
+        "mean_relative_regret": 0.09748411477601016,
+        "oracle_match_fraction": 0.2890625,
+        "mean_relative_improvement_over_fixed": 0.2020519078308936,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.18598653350491762,
+          0.21940226260691642
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "learned_seed2": {
+        "mean_C2": 2.0505813358738445,
+        "mean_relative_regret": 0.11638185581707315,
+        "oracle_match_fraction": 0.2578125,
+        "mean_relative_improvement_over_fixed": 0.18936714506034386,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.17129494195388517,
+          0.2085032975163864
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      }
+    }
+  },
+  "shift": {
+    "contexts": 512,
+    "oracle_distinct_argmin_labels": 46,
+    "best_fixed_train": "F3201F",
+    "oracle_batch_cost_seconds": 0.43801959600000373,
+    "policy_batch_inference_seconds": {
+      "learned_seed0": 0.0009163610000086919,
+      "learned_seed1": 0.0009252840000044671,
+      "learned_seed2": 0.000898393999932523
+    },
+    "methods": {
+      "reference": {
+        "mean_C2": 6.519556110792161,
+        "mean_relative_regret": 3.2614430135045342,
+        "oracle_match_fraction": 0.001953125,
+        "mean_relative_improvement_over_fixed": -1.310047659319398,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          -1.5821102378007028,
+          -1.0855303015240414
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "best_fixed_train": {
+        "mean_C2": 4.087717032062985,
+        "mean_relative_regret": 1.2330411450359358,
+        "oracle_match_fraction": 0.052734375,
+        "mean_relative_improvement_over_fixed": 0.0,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.0,
+          0.0
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "exhaustive_oracle": {
+        "mean_C2": 2.2141599650560044,
+        "mean_relative_regret": 0.0,
+        "oracle_match_fraction": 1.0,
+        "mean_relative_improvement_over_fixed": 0.39164117600113246,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.3704710020598896,
+          0.41348867339945156
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 96.0
+      },
+      "random_search": {
+        "mean_C2": 2.574281305660426,
+        "mean_relative_regret": 0.2257901548900817,
+        "oracle_match_fraction": 0.18359375,
+        "mean_relative_improvement_over_fixed": 0.2797109359885163,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.2545087070691326,
+          0.3057404467323934
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 16.0
+      },
+      "greedy_search": {
+        "mean_C2": 2.8025387222735567,
+        "mean_relative_regret": 0.37488241227244246,
+        "oracle_match_fraction": 0.037109375,
+        "mean_relative_improvement_over_fixed": 0.18673978651347295,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.15253293165385787,
+          0.22151172807073305
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 15.986328125
+      },
+      "learned_seed0": {
+        "mean_C2": 2.6464163664565246,
+        "mean_relative_regret": 0.22565651908640738,
+        "oracle_match_fraction": 0.19921875,
+        "mean_relative_improvement_over_fixed": 0.26268016659992444,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.23364831335881797,
+          0.29317984412817255
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "learned_seed1": {
+        "mean_C2": 2.6815619786916827,
+        "mean_relative_regret": 0.25561406241995493,
+        "oracle_match_fraction": 0.22265625,
+        "mean_relative_improvement_over_fixed": 0.24826816184475378,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.2189436424561583,
+          0.27934809983172537
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "learned_seed2": {
+        "mean_C2": 2.735637434397021,
+        "mean_relative_regret": 0.28569322891119564,
+        "oracle_match_fraction": 0.203125,
+        "mean_relative_improvement_over_fixed": 0.23720969211710072,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.20708918496450834,
+          0.2670915234947545
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      }
+    }
+  },
+  "scope": "Finite certified gate-order library; C2 is a second-order coefficient with perfect final recovery. All methods share the same offline catalog. Timing excludes catalog construction and training. Bootstrap intervals vary contexts, not physical devices. No unrestricted circuit optimum is claimed."
+}

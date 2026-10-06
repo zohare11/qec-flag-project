@@ -1,0 +1,19 @@
+{
+  "seed": 11101,
+  "families": [
+    "hw_id",
+    "ood_hub0_bad",
+    "ood_hub1_bad",
+    "ood_edge_hotspot",
+    "ood_logical_shift",
+    "ood_mixed"
+  ],
+  "contexts_per_family": 1,
+  "routing_cases": 4,
+  "scheduling_cases": 4,
+  "schedule_method": "shortest_greedy",
+  "routing_max_edits": 2,
+  "routing_max_verifier_calls": 32,
+  "witness_check_limit": 2,
+  "schedule_max_constraints": 15
+}

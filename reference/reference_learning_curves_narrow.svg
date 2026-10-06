@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+<rect width="100%" height="100%" fill="white"/>
+<text x="450.0" y="26" text-anchor="middle" font-family="sans-serif" font-size="18">Phase 2 validation regret: narrow</text>
+<line x1="85" y1="440" x2="845" y2="440" stroke="black"/>
+<line x1="85" y1="50" x2="85" y2="440" stroke="black"/>
+<line x1="80" y1="440.0" x2="85" y2="440.0" stroke="black"/>
+<text x="75" y="444.0" text-anchor="end" font-family="sans-serif" font-size="11">0.0%</text>
+<line x1="80" y1="362.0" x2="85" y2="362.0" stroke="black"/>
+<text x="75" y="366.0" text-anchor="end" font-family="sans-serif" font-size="11">15.7%</text>
+<line x1="80" y1="284.0" x2="85" y2="284.0" stroke="black"/>
+<text x="75" y="288.0" text-anchor="end" font-family="sans-serif" font-size="11">31.3%</text>
+<line x1="80" y1="206.0" x2="85" y2="206.0" stroke="black"/>
+<text x="75" y="210.0" text-anchor="end" font-family="sans-serif" font-size="11">47.0%</text>
+<line x1="80" y1="128.0" x2="85" y2="128.0" stroke="black"/>
+<text x="75" y="132.0" text-anchor="end" font-family="sans-serif" font-size="11">62.7%</text>
+<line x1="80" y1="50.0" x2="85" y2="50.0" stroke="black"/>
+<text x="75" y="54.0" text-anchor="end" font-family="sans-serif" font-size="11">78.4%</text>
+<text x="85.0" y="464" text-anchor="middle" font-family="sans-serif" font-size="11">0</text>
+<text x="237.0" y="464" text-anchor="middle" font-family="sans-serif" font-size="11">160</text>
+<text x="389.0" y="464" text-anchor="middle" font-family="sans-serif" font-size="11">320</text>
+<text x="541.0" y="464" text-anchor="middle" font-family="sans-serif" font-size="11">480</text>
+<text x="693.0" y="464" text-anchor="middle" font-family="sans-serif" font-size="11">640</text>
+<text x="845.0" y="464" text-anchor="middle" font-family="sans-serif" font-size="11">800</text>
+<polyline fill="none" stroke="#1f77b4" stroke-width="2.5" points="85.95,68.57 180.00,258.09 275.00,309.73 370.00,329.54 465.00,344.15 560.00,352.80 655.00,354.77 750.00,361.58 845.00,366.40"/>
+<line x1="605" y1="70" x2="635" y2="70" stroke="#1f77b4" stroke-width="3"/>
+<text x="645" y="74" font-family="sans-serif" font-size="12">reinforce</text>
+<polyline fill="none" stroke="#d62728" stroke-width="2.5" points="85.95,74.28 180.00,377.20 275.00,399.51 370.00,402.63 465.00,401.41 560.00,400.01 655.00,399.41 750.00,398.99 845.00,395.52"/>
+<line x1="605" y1="94" x2="635" y2="94" stroke="#d62728" stroke-width="3"/>
+<text x="645" y="98" font-family="sans-serif" font-size="12">classifier</text>
+<polyline fill="none" stroke="#2ca02c" stroke-width="2.5" points="85.95,82.31 180.00,409.65 275.00,417.86 370.00,417.03 465.00,417.60 560.00,416.59 655.00,415.68 750.00,414.60 845.00,413.09"/>
+<line x1="605" y1="118" x2="635" y2="118" stroke="#2ca02c" stroke-width="3"/>
+<text x="645" y="122" font-family="sans-serif" font-size="12">cost_regressor</text>
+<text x="465.0" y="500" text-anchor="middle" font-family="sans-serif" font-size="12">training update</text>
+<text transform="translate(18 245.0) rotate(-90)" text-anchor="middle" font-family="sans-serif" font-size="12">mean validation relative regret</text>
+</svg>

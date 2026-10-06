@@ -1,0 +1,12 @@
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Experiment outputs: keep the human-readable *summary.md of each run,
+# ignore the bulky CSV/JSON/NPZ files (regenerate them from configs/).
+runs/**
+!runs/**/
+!runs/**/*summary.md

@@ -1,0 +1,157 @@
+{
+  "test": {
+    "contexts": 96,
+    "oracle_distinct_argmin_labels": 25,
+    "best_fixed_train": "F1302F",
+    "oracle_batch_cost_seconds": 0.0033790730000191616,
+    "policy_batch_inference_seconds": {
+      "learned_seed0": 0.00019414599989886483
+    },
+    "methods": {
+      "reference": {
+        "mean_C2": 3.8630467384226805,
+        "mean_relative_regret": 1.2154628601694129,
+        "oracle_match_fraction": 0.0,
+        "mean_relative_improvement_over_fixed": -0.556596901834532,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          -0.6735328516762563,
+          -0.4301918748627957
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "best_fixed_train": {
+        "mean_C2": 2.65116234836312,
+        "mean_relative_regret": 0.5108629927346506,
+        "oracle_match_fraction": 0.020833333333333332,
+        "mean_relative_improvement_over_fixed": 0.0,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.0,
+          0.0
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "exhaustive_oracle": {
+        "mean_C2": 1.8491689660747763,
+        "mean_relative_regret": 0.0,
+        "oracle_match_fraction": 1.0,
+        "mean_relative_improvement_over_fixed": 0.290279062828443,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.2574769310564698,
+          0.3239394290986521
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 96.0
+      },
+      "random_search": {
+        "mean_C2": 2.0882994880828343,
+        "mean_relative_regret": 0.14030553350636196,
+        "oracle_match_fraction": 0.15625,
+        "mean_relative_improvement_over_fixed": 0.19699057943776044,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.16256396723817323,
+          0.23435143981753978
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 16.0
+      },
+      "greedy_search": {
+        "mean_C2": 2.2270364880951856,
+        "mean_relative_regret": 0.2237252176251696,
+        "oracle_match_fraction": 0.052083333333333336,
+        "mean_relative_improvement_over_fixed": 0.1331862477787745,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.08961806224906892,
+          0.1774446578597372
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 16.0
+      },
+      "learned_seed0": {
+        "mean_C2": 2.3651873323790933,
+        "mean_relative_regret": 0.3281805903259685,
+        "oracle_match_fraction": 0.08333333333333333,
+        "mean_relative_improvement_over_fixed": 0.062266844423715335,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          -0.003351699909497344,
+          0.12463664093822853
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      }
+    }
+  },
+  "shift": {
+    "contexts": 96,
+    "oracle_distinct_argmin_labels": 28,
+    "best_fixed_train": "F1302F",
+    "oracle_batch_cost_seconds": 0.003372773000023699,
+    "policy_batch_inference_seconds": {
+      "learned_seed0": 0.00017304499999681866
+    },
+    "methods": {
+      "reference": {
+        "mean_C2": 6.4480637178069244,
+        "mean_relative_regret": 2.570233753511319,
+        "oracle_match_fraction": 0.0,
+        "mean_relative_improvement_over_fixed": -1.190283317642776,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          -1.6399708483039002,
+          -0.7849040973813811
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "best_fixed_train": {
+        "mean_C2": 3.9515616127359823,
+        "mean_relative_regret": 1.1117076576500355,
+        "oracle_match_fraction": 0.08333333333333333,
+        "mean_relative_improvement_over_fixed": 0.0,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.0,
+          0.0
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      },
+      "exhaustive_oracle": {
+        "mean_C2": 2.191381730180138,
+        "mean_relative_regret": 0.0,
+        "oracle_match_fraction": 1.0,
+        "mean_relative_improvement_over_fixed": 0.3929337400390183,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.346388260335932,
+          0.4414033316013805
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 96.0
+      },
+      "random_search": {
+        "mean_C2": 2.566697285557312,
+        "mean_relative_regret": 0.20276544877004254,
+        "oracle_match_fraction": 0.15625,
+        "mean_relative_improvement_over_fixed": 0.2751189492502284,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.215643145836688,
+          0.3354479682957319
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 16.0
+      },
+      "greedy_search": {
+        "mean_C2": 2.834703285374797,
+        "mean_relative_regret": 0.3732276957257172,
+        "oracle_match_fraction": 0.07291666666666667,
+        "mean_relative_improvement_over_fixed": 0.14766672660815208,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          0.04169890024705941,
+          0.25236894609650856
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 16.0
+      },
+      "learned_seed0": {
+        "mean_C2": 3.069790110638079,
+        "mean_relative_regret": 0.5503532091607979,
+        "oracle_match_fraction": 0.13541666666666666,
+        "mean_relative_improvement_over_fixed": 0.08929899072838672,
+        "paired_context_bootstrap95_improvement_over_fixed": [
+          -0.013558610891715336,
+          0.18928644545950113
+        ],
+        "mean_candidate_evaluations_including_final_diagnostic": 1.0
+      }
+    }
+  },
+  "scope": "Finite certified gate-order library; C2 is a second-order coefficient with perfect final recovery. All methods share the same offline catalog. Timing excludes catalog construction and training. Bootstrap intervals vary contexts, not physical devices. No unrestricted circuit optimum is claimed."
+}

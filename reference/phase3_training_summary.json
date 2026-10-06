@@ -1,0 +1,16 @@
+{
+  "3A": [
+    {
+      "best_validation_log_cost_vs_reference": -0.42061722281041003,
+      "model_path": "phase3_3A_seed0.npz",
+      "seed": 0
+    }
+  ],
+  "3B": [
+    {
+      "best_validation_log_cost_vs_reference": -0.6980427381301875,
+      "model_path": "phase3_3B_seed0.npz",
+      "seed": 0
+    }
+  ]
+}

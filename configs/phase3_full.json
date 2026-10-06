@@ -1,0 +1,62 @@
+{
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "phase3A": {
+    "data_seed": 31001,
+    "train_contexts": 1024,
+    "validation_contexts": 96,
+    "test_contexts": 96,
+    "hidden": 96,
+    "updates": 350,
+    "batch_episodes": 64,
+    "learning_rate": 0.002,
+    "entropy_coefficient": 0.008,
+    "value_coefficient": 0.5,
+    "eval_every": 100,
+    "search_budget": 16,
+    "test_families": [
+      "single_narrow",
+      "single_shift"
+    ],
+    "diagnostic_family": "single_narrow",
+    "diagnostic_p": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "diagnostic_shots": 75000
+  },
+  "phase3B": {
+    "data_seed": 32001,
+    "train_contexts": 1536,
+    "validation_contexts": 96,
+    "test_contexts": 48,
+    "hidden": 128,
+    "updates": 600,
+    "batch_episodes": 64,
+    "learning_rate": 0.0015,
+    "entropy_coefficient": 0.01,
+    "value_coefficient": 0.5,
+    "eval_every": 100,
+    "search_budget": 16,
+    "test_families": [
+      "synthesis_id",
+      "ood_flagA_bad",
+      "ood_flagB_bad",
+      "ood_both_flags_clean",
+      "ood_data_hotspot",
+      "ood_readout_hotspot",
+      "ood_pauli_sparse"
+    ],
+    "diagnostic_family": "ood_both_flags_clean",
+    "diagnostic_p": [
+      0.002,
+      0.005,
+      0.01
+    ],
+    "diagnostic_shots": 75000
+  }
+}

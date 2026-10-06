@@ -1,0 +1,39 @@
+{
+  "training_seeds": [0],
+  "phase3A": {
+    "data_seed": 31001,
+    "train_contexts": 256,
+    "validation_contexts": 64,
+    "test_contexts": 64,
+    "hidden": 64,
+    "updates": 300,
+    "batch_episodes": 48,
+    "learning_rate": 0.0025,
+    "entropy_coefficient": 0.01,
+    "value_coefficient": 0.5,
+    "eval_every": 50,
+    "search_budget": 8,
+    "test_families": ["single_narrow", "single_shift"],
+    "diagnostic_family": "single_narrow",
+    "diagnostic_p": [0.01],
+    "diagnostic_shots": 50000
+  },
+  "phase3B": {
+    "data_seed": 32001,
+    "train_contexts": 384,
+    "validation_contexts": 64,
+    "test_contexts": 48,
+    "hidden": 96,
+    "updates": 500,
+    "batch_episodes": 48,
+    "learning_rate": 0.002,
+    "entropy_coefficient": 0.012,
+    "value_coefficient": 0.5,
+    "eval_every": 50,
+    "search_budget": 8,
+    "test_families": ["synthesis_id", "ood_flagA_bad", "ood_both_flags_clean"],
+    "diagnostic_family": "ood_both_flags_clean",
+    "diagnostic_p": [0.005],
+    "diagnostic_shots": 50000
+  }
+}

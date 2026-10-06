@@ -1,0 +1,40 @@
+{
+  "training_seeds": [
+    0,
+    1,
+    2
+  ],
+  "data_seed": 4100,
+  "train_contexts": 2048,
+  "hidden": 128,
+  "learning_rate": 0.0025,
+  "entropy": 0.012,
+  "entropy_exact": 0.006,
+  "value_coefficient": 0.5,
+  "proxy_updates": 900,
+  "proxy_batch": 64,
+  "exact_updates": 40,
+  "exact_batch": 4,
+  "log_every": 150,
+  "test_families": [
+    "round_id",
+    "ood_flagA_bad",
+    "ood_flagB_bad",
+    "ood_both_flags_clean",
+    "ood_check_hotspot",
+    "ood_data_hotspot",
+    "ood_readout_hotspot",
+    "ood_pauli_sparse"
+  ],
+  "test_contexts": 12,
+  "search_budget": 8,
+  "evaluation_seed": 4401,
+  "test_seed": 4402,
+  "noise_p": [
+    0.0005,
+    0.001,
+    0.002
+  ],
+  "noise_shots": 50000,
+  "noise_seed": 4403
+}

@@ -1,0 +1,10 @@
+{
+  "seed": 8201,
+  "contexts_per_family": 2,
+  "fixed_train_contexts": 8,
+  "search_budget": 4,
+  "rounds": 3,
+  "p": [0.0001, 0.0002, 0.0005],
+  "shots": 10000,
+  "families": ["hw_id", "ood_idle_hotspot", "ood_slow_link", "ood_logical_shift", "ood_mixed"]
+}

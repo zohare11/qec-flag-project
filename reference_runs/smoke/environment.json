@@ -1,0 +1,29 @@
+{
+  "environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "executable": "/opt/pyvenv/bin/python",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "project": "/mnt/data/qec_flag_project",
+    "packages": {
+      "numpy": "2.3.5",
+      "pytest": "9.0.2"
+    },
+    "inside_virtual_environment": true
+  },
+  "source_sha256": {
+    "qecflag/__init__.py": "1f0a58989d25e87ea7b96d4f139b5b8e7037c7599d2f456a87a2dad609dd5c96",
+    "qecflag/agent.py": "f464ae729ae1e8c21e195dcef1c84633f5cb83ba5da228ce8a286d0cff353c49",
+    "qecflag/catalog.py": "f50f6567b3612354f8f8f630500bdddc91e07733019ba9280ec8693cd4d9043a",
+    "qecflag/dense_check.py": "dbe209acd23e35cb4a25c2e4e31307aee56f964bc6a6addcb2b2394b3d9b48bc",
+    "qecflag/experiment.py": "21d8966861fa8268496495014b4e51943410a73e610796726cd6ed030290a02b",
+    "qecflag/noise.py": "cf25242652d7a0faf9c14ae5e1a3f44a02f9a2ba804856e7306ba1f3fac79189",
+    "qecflag/physics.py": "b5d29361a5d41d15f7ffd3d557df1cc482ca1356904102c9303dd26d86e0c156",
+    "qecflag/simulation.py": "bd0bec4f9cafa0e27620ab02cf2fecb0ddd1ea2880b2a90ad89c794eb75a8895",
+    "run_pipeline.py": "c1d83767735d963f89e54915a08d27bff421dc1fe9ca1052c953faef66951725",
+    "tests/conftest.py": "2de35b1059633f926e123fccd17f281036fc6c35b89b7901b7728e0926c2bcdb",
+    "tests/test_learning.py": "f2ea6157e4c03a250757205c1f7863d9e5eae0d7087a5e6dc9e29810d34b6e57",
+    "tests/test_physics.py": "f36b373642bece89e1a73ddfdb35253ac10e1f26d8263e3d359cf704d09d737d",
+    "tests/test_simulation.py": "6875ece175b566ca804b28ff5595654f3be3c0009efce44ff44ab64f48bef299"
+  }
+}

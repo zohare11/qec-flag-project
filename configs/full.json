@@ -1,0 +1,17 @@
+{
+  "name": "full",
+  "train_contexts": 1024,
+  "validation_contexts": 256,
+  "test_contexts": 512,
+  "data_seeds": {"train": 1101, "validation": 2202, "test": 3303, "shift": 4404},
+  "training_seeds": [0, 1, 2],
+  "updates": 1500,
+  "batch_size": 64,
+  "hidden": 64,
+  "learning_rate": 0.003,
+  "entropy_coefficient": 0.01,
+  "log_every": 100,
+  "search_budget": 16,
+  "noise_shots": 250000,
+  "noise_p": [0.005, 0.01, 0.02]
+}
