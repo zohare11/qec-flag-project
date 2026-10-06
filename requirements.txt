@@ -1,3 +1,5 @@
 numpy==2.3.5
 pytest==9.0.2
 stim>=1.14  # independent verifier cross-check: tools/stim_xcheck.py
+qiskit>=2.0  # ordinary-compiler baseline (SABRE routing) in ftcompile
+networkx>=3.0  # path enumeration in ftcompile
