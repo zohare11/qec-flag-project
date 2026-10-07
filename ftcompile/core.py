@@ -136,11 +136,14 @@ def _pauli_product(kind: str, nodes: Iterable[int]) -> list:
     return t[:-1]
 
 
-def to_stim(prog: PhysicalProgram, noise: Noise = Noise()) -> stim.Circuit:
+def to_stim(prog: PhysicalProgram, noise: Noise = Noise(), keep=None) -> stim.Circuit:
     """Noisy Stim circuit with detectors (all syndrome/flag bits + ideal final
     boundary) and two observables (X_L.X_R, Z_L.Z_R) against a noiseless
     reference qubit.  Noise instructions are tagged with their route/check id so
-    fault witnesses can be traced back to compiler decisions."""
+    fault witnesses can be traced back to compiler decisions.
+
+    keep: optional predicate on a noise tag; noise whose tag fails it is left out
+    (used to isolate the faults of one route)."""
     ref = prog.n_nodes
     c = stim.Circuit()
     nm = 0
@@ -163,24 +166,28 @@ def to_stim(prog: PhysicalProgram, noise: Noise = Noise()) -> stim.Circuit:
 
     s0 = stabs(prog.data_start); l0 = logicals(prog.data_start)
     c.append('TICK')
-    c.append('DEPOLARIZE1', [prog.data_start[q] for q in range(N_DATA)], noise.get('p_incoming'), tag='incoming')
+    def noisy(name, targets, p, tag):
+        if keep is None or keep(tag):
+            c.append(name, targets, p, tag=tag)
+
+    noisy('DEPOLARIZE1', [prog.data_start[q] for q in range(N_DATA)], noise.get('p_incoming'), 'incoming')
     active = sorted({q for o in prog.ops for q in o.qubits} | set(prog.data_start.values()))
     p_idle = noise.get('p_idle')
     for o in prog.ops:
         if o.name == 'R':
-            c.append('R', o.qubits); c.append('X_ERROR', o.qubits, noise.get('p_prep'), tag=f'prep:{o.tag}')
+            c.append('R', o.qubits); noisy('X_ERROR', o.qubits, noise.get('p_prep'), f'prep:{o.tag}')
         elif o.name == 'RX':
-            c.append('RX', o.qubits); c.append('Z_ERROR', o.qubits, noise.get('p_prep'), tag=f'prep:{o.tag}')
+            c.append('RX', o.qubits); noisy('Z_ERROR', o.qubits, noise.get('p_prep'), f'prep:{o.tag}')
         elif o.name == 'H':
             c.append('H', o.qubits)
         elif o.name == 'CX':
             c.append('CX', o.qubits)
-            c.append('DEPOLARIZE2', o.qubits, noise.p, tag=f'{o.kind}:{o.tag}')
+            noisy('DEPOLARIZE2', o.qubits, noise.p, f'{o.kind}:{o.tag}')
             idle = [q for q in active if q not in o.qubits]
             if p_idle > 0 and idle:
-                c.append('DEPOLARIZE1', idle, p_idle, tag=f'idle:{o.tag}')
+                noisy('DEPOLARIZE1', idle, p_idle, f'idle:{o.tag}')
         elif o.name in ('M', 'MX'):
-            c.append('X_ERROR' if o.name == 'M' else 'Z_ERROR', o.qubits, noise.get('p_meas'), tag=f'meas:{o.tag}')
+            noisy('X_ERROR' if o.name == 'M' else 'Z_ERROR', o.qubits, noise.get('p_meas'), f'meas:{o.tag}')
             c.append(o.name, o.qubits)
             meas_index[o.key] = nm; nm += 1
         else:

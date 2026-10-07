@@ -35,11 +35,11 @@ Example witness for bridge_shortest (two single events, same detectors, differen
 
 | Compiler | p=0.002 | p=0.001 | p=0.0005 | p=0.00025 | log-log slope |
 |---|---:|---:|---:|---:|---:|
-| unrouted | 2.46e-03 (246/100000) | 5.87e-04 (176/300000) | 1.37e-04 (151/1100000) | 3.58e-05 (143/4000000) | 2.04 |
-| qiskit_default_no_routing | 4.00e-03 (400/100000) | 1.57e-03 (157/100000) | 5.80e-04 (174/300000) | 3.28e-04 (164/500000) | 1.23 |
-| sabre_opt1 | 1.90e-02 (1900/100000) | 5.99e-03 (599/100000) | 1.91e-03 (191/100000) | 7.23e-04 (217/300000) | 1.58 |
-| bridge_shortest | 3.45e-02 (3453/100000) | 1.20e-02 (1202/100000) | 4.40e-03 (440/100000) | 1.79e-03 (179/100000) | 1.43 |
-| bridge_shortest_repaired | 2.39e-02 (2388/100000) | 6.75e-03 (675/100000) | 1.90e-03 (190/100000) | 4.05e-04 (162/400000) | 1.95 |
+| unrouted | 2.54e-03 (254/100000) | 5.93e-04 (178/300000) | 1.62e-04 (162/1000000) | 3.65e-05 (146/4000000) | 2.02 |
+| qiskit_default_no_routing | 3.85e-03 (385/100000) | 1.56e-03 (156/100000) | 6.97e-04 (209/300000) | 2.90e-04 (174/600000) | 1.24 |
+| sabre_opt1 | 1.80e-02 (1797/100000) | 5.95e-03 (595/100000) | 2.13e-03 (213/100000) | 8.25e-04 (165/200000) | 1.48 |
+| bridge_shortest | 3.48e-02 (3475/100000) | 1.18e-02 (1185/100000) | 4.51e-03 (451/100000) | 1.70e-03 (170/100000) | 1.45 |
+| bridge_shortest_repaired | 2.43e-02 (2428/100000) | 6.84e-03 (684/100000) | 1.75e-03 (175/100000) | 3.90e-04 (156/400000) | 1.98 |
 
 Slope near 2 = second-order (fault-tolerant); near 1 = single faults cause logical errors.
 
@@ -56,7 +56,7 @@ Repair (only bridge path changes, budget 150 verifier calls):
 
 | Start from | failing rounds | repaired | stuck (no single change helps) | budget exhausted | median calls (repaired) | CNOT change (repaired, median) |
 |---|---:|---:|---:|---:|---:|---:|
-| bridge_shortest | 96 | 40 | 24 | 32 | 61 | +8 |
+| bridge_shortest | 96 | 40 | 25 | 31 | 61 | +4 |
 | bridge_ancilla_first | 64 | 25 | 39 | 0 | 13 | +8 |
 
 ## Scope
@@ -64,4 +64,4 @@ Repair (only bridge path changes, budget 150 verifier calls):
 - One code (Steane, flag extraction, six serialized checks), one 12-node grid, one placement, one round with an ideal final read-out.
 - Repair only changes the physical path of each logical CNOT; placement, hubs, templates and check order are fixed. "Stuck" means no single path change lowers the first-order failure; it does not prove that no path assignment works.
 - Noise strengths are uniform and synthetic; the FT verdict itself does not depend on them.
-- Runtime: 325s.
+- Runtime: 555s.

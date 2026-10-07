@@ -18,8 +18,11 @@ Stim circuit      --single_fault_check-->  pass/fail + fault witnesses
 | `ftcompile/compilers.py` | bridge compiler (paths chosen by a policy or overridden), Qiskit compiler (SABRE routing and/or optimizer), unrouted reference |
 | `ftcompile/repair.py` | witness-guided repair: change the path of the routes that appear in fault witnesses until the check passes |
 | `ftcompile/decode.py` | order-2 maximum-likelihood lookup decoder and logical-error sampling |
+| `ftcompile/exact.py` | exact repairability oracle: per-route fault signatures -> CP-SAT model over path choices (feasible? fewest route changes? fewest CNOTs?) |
 | `run_ftcompile_case.py` | the case study (writes `runs/ftcompile_steane_grid/summary.md`) |
+| `run_ftcompile_exact.py` | oracle over all 96 rounds, compared with greedy repair (writes `exact_summary.md`; run the case study first) |
 | `tests/test_ftcompile.py` | bridge identity, agreement with the old verifier, repair, Qiskit flag stripping, decoder sanity |
+| `tests/test_ftcompile_exact.py` | the route decomposition is exact; oracle solutions verify; an impossible round is reported |
 
 **Single-fault FT** = after one noisy round and an ideal final read-out, no single fault (or single
 incoming data error) shares a detector signature with another single event that has a different
@@ -34,8 +37,9 @@ check 2, interaction 3), so a witness points straight at the route to change.
 
 ```
 source .venv/bin/activate
-python -m pip install -r requirements.txt     # adds stim, qiskit, networkx
+python -m pip install -r requirements.txt     # adds stim, qiskit, networkx, ortools
 python -m pytest -q tests/test_ftcompile.py   # ~10 s
 python run_ftcompile_case.py --quick          # ~1 min smoke run
 python run_ftcompile_case.py                  # full case study, several minutes
+python run_ftcompile_exact.py                 # exact oracle on all 96 rounds, ~5-10 minutes
 ```
