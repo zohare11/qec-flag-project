@@ -20,15 +20,18 @@ Stim circuit      --single_fault_check-->  pass/fail + fault witnesses
 | `ftcompile/decode.py` | order-2 maximum-likelihood lookup decoder and logical-error sampling |
 | `ftcompile/exact.py` | exact repairability oracle: per-route fault signatures -> CP-SAT model over path choices (feasible? fewest route changes? fewest CNOTs?) |
 | `ftcompile/placement.py` | the same oracle made fast enough for placement search: placement-independent Stim tail maps + bridge residual tables |
-| `ftcompile/gadgets.py` | flag-bridge gadgets (data may couple to a flag), certified patterns, exact minimum-CNOT layouts with CP-SAT |
+| `ftcompile/gadgets.py` | flag-bridge gadgets (data may couple to a flag), certified patterns, exact minimum-CNOT layouts with CP-SAT on grids or any coupling graph |
+| `ftcompile/published.py` | published hand-designed rounds rebuilt gate by gate: Rodriguez-Blanco et al. 2025 (4x4 citadel), Lao & Almudever 2020 (IBM-20, serial and parallel) |
 | `run_ftcompile_case.py` | the case study (writes `runs/ftcompile_steane_grid/summary.md`) |
 | `run_ftcompile_exact.py` | oracle over all 96 rounds, compared with greedy repair (writes `exact_summary.md`; run the case study first) |
 | `run_ftcompile_placement.py` | placement search on the 3x4 grid (writes `runs/ftcompile_placement/summary.md`) |
-| `run_ftcompile_flagbridge.py` | flag-bridge layouts vs hand-designed ones, exact optima on several grids (writes `runs/ftcompile_flagbridge/summary.md`) |
+| `run_ftcompile_flagbridge.py` | flag-bridge layouts, exact optima on several grids (writes `runs/ftcompile_flagbridge/summary.md`) |
+| `run_ftcompile_published.py` | the published rounds checked and compared with the exact optima on the same hardware (writes `runs/ftcompile_published/summary.md`) |
 | `tests/test_ftcompile.py` | bridge identity, agreement with the old verifier, repair, Qiskit flag stripping, decoder sanity |
 | `tests/test_ftcompile_exact.py` | the route decomposition is exact; oracle solutions verify; an impossible round is reported |
 | `tests/test_ftcompile_placement.py` | fast evaluator matches full Stim on random placements; placement changes repairability |
 | `tests/test_ftcompile_gadgets.py` | flag-bridge patterns measure correctly, window rule enforced, 3x4 optimum is 40 and verifies |
+| `tests/test_ftcompile_published.py` | the rebuilt published rounds are FT with the stated CNOT counts; IBM-20 reaches 36 with 2 ancillas |
 
 **Single-fault FT** = after one noisy round and an ideal final read-out, no single fault (or single
 incoming data error) shares a detector signature with another single event that has a different
@@ -49,5 +52,6 @@ python run_ftcompile_case.py --quick          # ~1 min smoke run
 python run_ftcompile_case.py                  # full case study, several minutes
 python run_ftcompile_exact.py                 # exact oracle on all 96 rounds, ~5-10 minutes
 python run_ftcompile_placement.py             # placement search, ~30-60 minutes (--quick: ~3 minutes)
-python run_ftcompile_flagbridge.py            # flag-bridge comparison, ~2 minutes
+python run_ftcompile_flagbridge.py            # flag-bridge optima, ~5 minutes
+python run_ftcompile_published.py             # published rounds vs exact optima, ~2 minutes
 ```

@@ -65,15 +65,17 @@ Order-2 lookup decoder, ideal final read-out; same noise model as before (p on C
 
 ## Comparison with the hand-designed layouts
 
-| Layout | Qubits | CNOTs per serial round | Source |
-|---|---|---:|---|
-| Lao & Almudever 2020, flag-bridge | 7 data + 6 ancillas | 36 | their Table I (serial scheme) |
-| Rodriguez-Blanco et al. 2025, 4x4 "citadel" | 7 data + 4 ancillas | about 48 (inferred) | 1 syndrome + 2 flags per stabilizer; 24 CNOTs for 3 stabilizers in their Table II |
-| this search, 3x4 | 7 data + 3 ancillas | 40 (proven minimum here) | above |
-| this search, 4x4 | 7 data + 4 ancillas | 40 (proven minimum here) | above |
-| this search, 5x5 | 7 data + 6 ancillas | 36 | above |
+| Layout | Hardware | Ancillas | CNOTs per round | Source |
+|---|---|---:|---:|---|
+| Rodriguez-Blanco et al. 2025, citadel | 4x4 grid | 4 | 48 | rebuilt from their Fig. 2, FT verified |
+| this search | 4x4 grid | 4 | 40 | above |
+| this search | 3x4 grid | 3 | 40 | above |
+| Lao & Almudever 2020, Steane-c1-L2 (serial) | IBM-20 | 6 | 36 | rebuilt from their Figs. 1c, 4a, 8a, FT verified |
+| this search | IBM-20 | 2 | 36 | `run_ftcompile_published.py` |
+| this search | 5x5 grid | 6 | 36 | above |
+| Lao & Almudever 2020, Steane-c3-L2 (parallel) | IBM-20 | 4 | 30 | rebuilt from their Figs. 5b, 8c, FT verified |
 
-Caveats: the published gate sequences are only in figures, so their circuits were not rebuilt here; the 48 is our inference from their per-stabilizer count. Their fault-tolerance checks use flag-aware decoders over repeated rounds; ours is decoder-independent circuit distance for one round. Their parallel schemes (Lao: 30 CNOTs) measure several stabilizers at once, which this serialized model does not.
+Details, logical error rates and caveats: `runs/ftcompile_published/summary.md`. The minima above are for one check at a time; Lao's parallel block, which measures three checks with shared ancillas, needs fewer CNOTs than any serialized round (it uses IBM-20's diagonal couplers and a degree-5 ancilla).
 
 ## Scope
 

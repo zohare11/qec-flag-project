@@ -228,7 +228,13 @@ def best_direct_round(placement, graph, ancillas=ANCILLAS, noise=None, max_tries
 
 
 def optimal_direct_layout(rows: int, cols: int, n_anc: int, time_limit: float = 600.0):
-    """Exact minimum-CNOT all-direct layout on a rows x cols grid (CP-SAT).
+    """Exact minimum-CNOT all-direct layout on a rows x cols grid (see optimal_direct_layout_on)."""
+    from .core import grid_edges
+    return optimal_direct_layout_on(grid_edges(rows, cols), n_anc, time_limit)
+
+
+def optimal_direct_layout_on(edges, n_anc: int, time_limit: float = 600.0):
+    """Exact minimum-CNOT all-direct layout on any coupling graph (CP-SAT).
 
     Every check costs 6 CNOTs with one flag (needs an adjacent ancilla pair whose
     neighbours cover the support) or 8 with two flags (a syndrome ancilla with two
@@ -238,8 +244,8 @@ def optimal_direct_layout(rows: int, cols: int, n_anc: int, time_limit: float = 
     """
     import networkx as nx
     from ortools.sat.python import cp_model
-    from .core import CHECKS, grid_edges
-    G = nx.Graph(grid_edges(rows, cols)); N = sorted(G.nodes)
+    from .core import CHECKS
+    G = nx.Graph(list(edges)); N = sorted(G.nodes)
     anc = list(range(7, 7 + n_anc)); Q = list(range(7)) + anc
     m = cp_model.CpModel()
     x = {(q, n): m.NewBoolVar(f'x{q}_{n}') for q in Q for n in N}
