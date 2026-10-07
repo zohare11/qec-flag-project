@@ -32,3 +32,14 @@ def test_ibm20_needs_only_two_ancillas_for_36():
     assert status == 'OPTIMAL' and costs == [6, 6, 6]
     prog, _ = GD.best_direct_round(pl, Graph(list(P.IBM20_EDGES), pl), (7, 8))
     assert prog.n_cx == 36 and check_program(prog, explain=False).passed
+
+
+def test_poor_round_is_ft_but_does_not_fit_a_square_grid():
+    import networkx as nx
+    from networkx.algorithms import isomorphism
+    from ftcompile.core import grid_edges
+    prog = P.build(P.POOR)                    # three read-outs are products of checks
+    assert prog.n_cx == 28 and check_program(prog, explain=False).passed
+    g = P.interaction_graph(P.POOR)
+    assert not isomorphism.GraphMatcher(nx.Graph(grid_edges(6, 6)), g).subgraph_is_monomorphic()
+    assert isomorphism.GraphMatcher(nx.Graph(list(P.IBM20_EDGES)), g).subgraph_is_monomorphic()

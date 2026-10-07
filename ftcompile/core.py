@@ -199,8 +199,9 @@ def to_stim(prog: PhysicalProgram, noise: Noise = Noise(), keep=None) -> stim.Ci
     def rec(i):
         return stim.target_rec(i - nm)
 
+    combos = prog.meta.get('syn_checks', {})      # read-out slot -> checks whose product it measures
     for ci, key in enumerate(prog.syn_keys):
-        c.append('DETECTOR', [rec(meas_index[key]), rec(s0[ci])], [ci, 0])
+        c.append('DETECTOR', [rec(meas_index[key])] + [rec(s0[x]) for x in combos.get(ci, (ci,))], [ci, 0])
     for ci, keys in enumerate(prog.flag_keys):
         for key in keys:
             c.append('DETECTOR', [rec(meas_index[key])], [ci, 1])

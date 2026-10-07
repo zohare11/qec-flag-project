@@ -62,13 +62,12 @@ def short_sequences_ok(G, k, B):
                     nonroot = [i for i in range(k) if i != root]
                     from scipy.optimize import linear_sum_assignment
                     best = 99
-                    for synp in itertools.permutations(range(k - 1), 3):
-                        tgt = lambda col: sum(((col >> i) & 1) << synp[i] for i in range(3))
+                    for T in PA.readout_bases(k - 1):
                         cm = [[PA._min_cost(tuple(PA._proj(M[g][a], nonroot) for a in adj[v] for g in range(L + 1)),
-                                            tgt(PA.COLUMNS[q]), B - L - 6) for v in free] for q in range(7)]
+                                            PA._target(T, PA.COLUMNS[q]), B - L - 6) for v in free] for q in range(7)]
                         r, c = linear_sum_assignment(cm)
                         best = min(best, L + sum(cm[q][j] for q, j in zip(r, c)))
-                    if best <= B and PA.hook_feasible(G, nodes, tuple(ops), root, B):
+                    if len(free) >= 7 and best <= B and PA.hook_feasible(G, nodes, tuple(ops), root, B):
                         found += 1
     return n, found
 
@@ -137,11 +136,23 @@ def main():
                    'gates': pretty_gates(d)}
     print(f'[C] design: {prog.n_cx} CNOTs, FT {R["design"]["ft"]} ({time.time()-t0:.0f}s)', flush=True)
 
+    # E. Poor, Rodatz & Kissinger's circuit: does it fit a square grid?
+    from networkx.algorithms import isomorphism
+    pg = P.interaction_graph(P.POOR)
+    anc = pg.subgraph(['A1', 'A2', 'A3', 'F'])
+    R['poor'] = {'cx': P.build(P.POOR).n_cx, 'ft': check_program(P.build(P.POOR), explain=False).passed,
+                 'ancilla_pairs_coupled': anc.number_of_edges(), 'ancilla_triangles': sum(nx.triangles(anc).values()) // 3,
+                 'max_partners': max(dict(pg.degree()).values()),
+                 'fits_square_grid': isomorphism.GraphMatcher(nx.Graph(grid_edges(6, 6)), pg).subgraph_is_monomorphic(),
+                 'fits_ibm20': isomorphism.GraphMatcher(nx.Graph(list(P.IBM20_EDGES)), pg).subgraph_is_monomorphic()}
+    print(f'[E] Poor et al.: {R["poor"]} ({time.time()-t0:.0f}s)', flush=True)
+
     # D. comparison
     ps = [1e-3, 5e-4, 2.5e-4]
     st, costs, pl = GD.optimal_direct_layout(3, 4, 3)
     serial34, _ = GD.best_direct_round(pl, Graph(grid_edges(3, 4), pl), (7, 8, 9))
     rows = [('this search, parallel', '4x4 grid', 4, prog),
+            ('Poór, Rodatz & Kissinger 2025 (rebuilt)', 'all-to-all', 4, P.build(P.POOR)),
             ('Lao & Almudever 2020, c3-L2 parallel', 'IBM-20', 4, P.build(P.LAO_C3)),
             ('this search, serialized (earlier step)', '3x4 grid', 3, serial34),
             ('Rodriguez-Blanco et al. 2025, citadel', '4x4 grid', 4, P.build(P.RB_CITADEL)),
@@ -158,7 +169,7 @@ def main():
 
 
 def render(R) -> str:
-    d = R['design']; lao = R['lao']
+    d = R['design']; lao = R['lao']; po = R.get('poor', {})
     first = R['compare'][0]
     L = ['# Parallel flag-bridge blocks on a square grid', '',
          'All three checks of one type measured at once with shared ancillas and a single flag, as in Lao & Almudever\'s '
@@ -213,17 +224,26 @@ def render(R) -> str:
           'read-out and incoming data, p/10 idle per CNOT on every other qubit.', '',
           '## Related work', '',
           '- Poór, Rodatz & Kissinger, "Ultra Low Overhead Syndrome Extraction for the Steane Code" (arXiv:2511.13700, '
-          '2025): 14 CNOTs per syndrome type with 4 ancillas, proven CNOT-optimal by exhaustive search, with an adaptive '
-          'protocol (discard flagged rounds and run an 11-CNOT recovery circuit). They do not consider hardware '
-          'connectivity. The count here equals theirs: on this problem the square grid costs nothing. Whether their own '
-          'circuit fits a square grid is not stated (its gates are only in a figure we have not read).',
+          '2025): the same count, 14 CNOTs per type with 4 ancillas, with no connectivity constraints and an adaptive '
+          'protocol (discard flagged rounds, run an 11-CNOT recovery circuit). Rebuilt from their Fig. 2a, their round '
+          f'has {po["cx"]} CNOTs and passes our check too (FT: {po["ft"]}). But its four ancillas are coupled in all '
+          f'{po["ancilla_pairs_coupled"]} pairs ({po["ancilla_triangles"]} triangles) and one ancilla has '
+          f'{po["max_partners"]} partners, so it cannot be placed on a square grid, which has no triangles and at most 4 '
+          f'neighbours per qubit (exact subgraph search: fits a square grid {po["fits_square_grid"]}; fits IBM-20\'s '
+          f'crossed squares {po["fits_ibm20"]}). We know of no other 28-CNOT round that fits a square grid.',
+          '- Their optimality proof shows 11 CNOTs are needed without flags and that flagging an 11-CNOT circuit costs at '
+          'least 3 more. It does not cover a 12-CNOT circuit plus one flag CNOT, so whether 13 per type is possible with '
+          'unrestricted connectivity is open as far as we can tell. The hook test here cannot settle it: with all-to-all '
+          'couplings many designs pass it, because it ignores faults between couplings in the same gap.',
           '- Lao & Almudever 2020: 30 CNOTs with diagonal couplers (IBM-20). Rodriguez-Blanco et al. 2025: 48 CNOTs on a '
           '4x4 grid. Chao & Reichardt and Reichardt (2018), Liou & Lai (arXiv:2208.00581): parallel flag circuits without '
           'connectivity limits.', '',
           '## Scope and caveats', '',
-          '- Model: one flag per block, all non-flag ancillas read out in Z as one generator each (or 0), same design for '
-          'the X and Z blocks, checks of one type measured together. Rounds outside it (two flags, redundant syndrome '
-          'read-outs, mixing X and Z checks in one block, 6+ ancillas) are not covered by the lower bound.',
+          '- Model: one flag per block; the other ancillas are read out in Z and may measure any stabilizer products '
+          '(as in Poór et al.), redundant or 0, as long as the syndrome can be recovered; same design for the X and Z '
+          'blocks; checks of one type measured together. By the Steane code\'s automorphisms one read-out basis per '
+          'read-out subspace suffices (checked: identical results with all 168 bases for 4 ancillas). Rounds outside the '
+          'model (two flags, mixing X and Z checks in one block, 6+ ancillas) are not covered by the lower bound.',
           '- The lower bound uses our noise model, which has idle noise on every qubit after every CNOT; without idle '
           'noise fewer fault locations exist and the bound is not claimed.',
           '- Fault tolerance is single-fault circuit distance 3 for one round plus an ideal read-out, not an adaptive '

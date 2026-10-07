@@ -22,7 +22,7 @@ How it works: the flag F0 spreads a cat state to a1 and a2, and a1 passes it on 
 ## Lower bound within the model
 
 - 4 ancillas, every ancilla-CNOT sequence up to 7 CNOTs on all 5 shapes: 298 designs reach 13 or fewer CNOTs per block linearly; 0 of them pass the necessary hook conditions. At 14: 7133 designs, 680 pass the hook conditions.
-- 5 ancillas, every ancilla-CNOT sequence up to 6 CNOTs on all 12 shapes: 1218 designs reach 13 or fewer CNOTs per block linearly; 0 of them pass the necessary hook conditions.
+- 5 ancillas, every ancilla-CNOT sequence up to 6 CNOTs on all 12 shapes: 1236 designs reach 13 or fewer CNOTs per block linearly; 0 of them pass the necessary hook conditions.
 - 4 ancillas, sequences of at most 3 ancilla CNOTs (any number of couplings per data qubit): 3414 valid designs, 0 pass at 13.
 - 5 ancillas, sequences of at most 3 ancilla CNOTs (any number of couplings per data qubit): 22302 valid designs, 0 pass at 13.
 
@@ -37,8 +37,9 @@ Sanity check: the model reproduces Lao's block on IBM-20 (linear cost 15, hook t
 | Round | Hardware | Ancillas | CNOTs | FT | p = 0.001 | p = 0.0005 | p = 0.00025 | slope |
 |---|---|---:|---:|---|---:|---:|---:|---:|
 | this search, parallel | 4x4 grid | 4 | 28 | True | 5.50e-04 | 1.23e-04 | 2.99e-05 | 2.10 |
+| Poór, Rodatz & Kissinger 2025 (rebuilt) | all-to-all | 4 | 28 | True | 5.20e-04 | 1.37e-04 | 3.52e-05 | 1.94 |
 | Lao & Almudever 2020, c3-L2 parallel | IBM-20 | 4 | 30 | True | 5.44e-04 | 1.28e-04 | 3.19e-05 | 2.05 |
-| this search, serialized (earlier step) | 3x4 grid | 3 | 40 | True | 7.75e-04 | 1.91e-04 | 4.76e-05 | 2.01 |
+| this search, serialized (earlier step) | 3x4 grid | 3 | 40 | True | 7.68e-04 | 1.95e-04 | 5.15e-05 | 1.95 |
 | Rodriguez-Blanco et al. 2025, citadel | 4x4 grid | 4 | 48 | True | 9.38e-04 | 2.51e-04 | 6.50e-05 | 1.93 |
 | all-to-all serialized reference | complete graph | 2 | 36 | True | 6.27e-04 | 1.48e-04 | 3.94e-05 | 2.00 |
 
@@ -46,12 +47,13 @@ Logical error rate after one round: order-2 lookup decoder, ideal final read-out
 
 ## Related work
 
-- Poór, Rodatz & Kissinger, "Ultra Low Overhead Syndrome Extraction for the Steane Code" (arXiv:2511.13700, 2025): 14 CNOTs per syndrome type with 4 ancillas, proven CNOT-optimal by exhaustive search, with an adaptive protocol (discard flagged rounds and run an 11-CNOT recovery circuit). They do not consider hardware connectivity. The count here equals theirs: on this problem the square grid costs nothing. Whether their own circuit fits a square grid is not stated (its gates are only in a figure we have not read).
+- Poór, Rodatz & Kissinger, "Ultra Low Overhead Syndrome Extraction for the Steane Code" (arXiv:2511.13700, 2025): the same count, 14 CNOTs per type with 4 ancillas, with no connectivity constraints and an adaptive protocol (discard flagged rounds, run an 11-CNOT recovery circuit). Rebuilt from their Fig. 2a, their round has 28 CNOTs and passes our check too (FT: True). But its four ancillas are coupled in all 6 pairs (4 triangles) and one ancilla has 6 partners, so it cannot be placed on a square grid, which has no triangles and at most 4 neighbours per qubit (exact subgraph search: fits a square grid False; fits IBM-20's crossed squares True). We know of no other 28-CNOT round that fits a square grid.
+- Their optimality proof shows 11 CNOTs are needed without flags and that flagging an 11-CNOT circuit costs at least 3 more. It does not cover a 12-CNOT circuit plus one flag CNOT, so whether 13 per type is possible with unrestricted connectivity is open as far as we can tell. The hook test here cannot settle it: with all-to-all couplings many designs pass it, because it ignores faults between couplings in the same gap.
 - Lao & Almudever 2020: 30 CNOTs with diagonal couplers (IBM-20). Rodriguez-Blanco et al. 2025: 48 CNOTs on a 4x4 grid. Chao & Reichardt and Reichardt (2018), Liou & Lai (arXiv:2208.00581): parallel flag circuits without connectivity limits.
 
 ## Scope and caveats
 
-- Model: one flag per block, all non-flag ancillas read out in Z as one generator each (or 0), same design for the X and Z blocks, checks of one type measured together. Rounds outside it (two flags, redundant syndrome read-outs, mixing X and Z checks in one block, 6+ ancillas) are not covered by the lower bound.
+- Model: one flag per block; the other ancillas are read out in Z and may measure any stabilizer products (as in Poór et al.), redundant or 0, as long as the syndrome can be recovered; same design for the X and Z blocks; checks of one type measured together. By the Steane code's automorphisms one read-out basis per read-out subspace suffices (checked: identical results with all 168 bases for 4 ancillas). Rounds outside the model (two flags, mixing X and Z checks in one block, 6+ ancillas) are not covered by the lower bound.
 - The lower bound uses our noise model, which has idle noise on every qubit after every CNOT; without idle noise fewer fault locations exist and the bound is not claimed.
 - Fault tolerance is single-fault circuit distance 3 for one round plus an ideal read-out, not an adaptive protocol.
-- Runtime: 2469s (with --full).
+- Runtime: 999s (with --full).

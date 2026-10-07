@@ -117,12 +117,16 @@ def residual_table(d: int) -> tuple[np.ndarray, np.ndarray]:
     return xs, zs
 
 
-_BASE = Graph()
+@lru_cache(maxsize=None)
+def _graph(edges: tuple) -> Graph:
+    if edges == tuple(GRID_EDGES):
+        return Graph()                     # the original 3x4 grid (path order as before)
+    return Graph(list(edges), {q: -1 - q for q in range(N_VIRTUAL)})
 
 
 @lru_cache(maxsize=None)
-def candidate_paths(s: int, t: int, extra_hops: int = 2) -> tuple[tuple[int, ...], ...]:
-    return _BASE.paths(s, t, extra_hops=extra_hops)
+def candidate_paths(s: int, t: int, extra_hops: int = 2, edges: tuple = tuple(GRID_EDGES)) -> tuple[tuple[int, ...], ...]:
+    return _graph(edges).paths(s, t, extra_hops=extra_hops)
 
 
 # ---------------------------------------------------------------- per-placement model
@@ -147,7 +151,8 @@ def path_signatures(tables: RoundTables, route: str, path: tuple[int, ...], inv:
     return np.unique(np.bitwise_xor.reduce(contrib, axis=1))
 
 
-def build(tables: RoundTables, placement: dict[int, int], extra_hops: int = 2) -> PlacementModel:
+def build(tables: RoundTables, placement: dict[int, int], extra_hops: int = 2,
+          edges: tuple = tuple(GRID_EDGES)) -> PlacementModel:
     inv = {n: v for v, n in placement.items()}
     fixed_obs = {}
     for k in tables.fixed:
@@ -155,7 +160,7 @@ def build(tables: RoundTables, placement: dict[int, int], extra_hops: int = 2) -
     routes, cands, sigs, allowed = [], {}, {}, {}
     for r, cv, tv in tables.routes:
         routes.append(r)
-        cands[r] = candidate_paths(placement[cv], placement[tv], extra_hops)
+        cands[r] = candidate_paths(placement[cv], placement[tv], extra_hops, tuple(edges))
         allowed[r] = []
         for i, p in enumerate(cands[r]):
             s = path_signatures(tables, r, p, inv)
@@ -231,9 +236,10 @@ def predicted_signatures(tables: RoundTables, placement: dict[int, int], paths: 
     return out
 
 
-def validate(lr: LogicalRound, tables: RoundTables, placement: dict[int, int], paths: dict[str, tuple[int, ...]]) -> bool:
+def validate(lr: LogicalRound, tables: RoundTables, placement: dict[int, int], paths: dict[str, tuple[int, ...]],
+             edges=GRID_EDGES) -> bool:
     """Predicted signature set == signature set of the full compiled Stim circuit."""
-    g = Graph(GRID_EDGES, placement)
+    g = Graph(list(edges), placement)
     circ = to_stim(compile_bridge(lr, g, 'shortest', overrides=paths), Noise())
     full = set()
     for inst in circ.detector_error_model(decompose_errors=False).flattened():

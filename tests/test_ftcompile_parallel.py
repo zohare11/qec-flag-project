@@ -45,3 +45,10 @@ def test_nothing_at_13_on_the_2x2_ancilla_square():
 def test_z_spreads_from_target_to_control():
     Z = PA.z_propagation(((0, 1),), 2)
     assert Z[(1, 0)][1] == 0b11 and Z[(0, 0)][1] == 0b01
+
+
+def test_readout_subspaces():
+    assert PA.readout_bases(3) == [(1, 2, 4)]
+    bases = PA.readout_bases(4)
+    assert len(bases) == 15 and len({frozenset(a ^ b ^ c for a in (0, t[0]) for b in (0, t[1]) for c in (0, t[2]))
+                                      for t in bases}) == 15

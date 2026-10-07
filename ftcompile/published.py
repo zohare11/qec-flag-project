@@ -30,7 +30,8 @@ from .core import CHECKS, SUPPORTS, Op, PhysicalProgram, grid_edges
 
 @dataclass(frozen=True)
 class Block:
-    checks: dict          # syndrome ancilla name -> stabilizer index (0, 1, 2 in the paper's numbering order)
+    checks: dict          # syndrome ancilla name -> stabilizer index (0, 1, 2 in the paper's numbering order),
+                          # or a tuple of indices when the ancilla reads out their product
     flags: tuple          # flag ancilla names
     gates: tuple          # ((control, target), ...) as drawn
     convention: str       # 'X' or 'Z': the check type the gates are drawn for
@@ -62,11 +63,18 @@ def build(pr: PublishedRound) -> PhysicalProgram:
     E = {frozenset(e) for e in pr.edges}
     node = lambda n: pr.layout[n]
     ops: list[Op] = []
-    syn_keys = [None] * 6; flag_keys = [()] * 6
+    syn_keys = [None] * 6; flag_keys = [()] * 6; combos = {}
     for ctype in ('X', 'Z'):
         base = 0 if ctype == 'X' else 3
         for blk in pr.blocks:
-            cis = [base + pr.stab_map[k] for k in blk.checks.values()]
+            if any(isinstance(k, tuple) for k in blk.checks.values()):
+                assert len(pr.blocks) == 1, 'product read-outs: one block per check type'
+                slot = {s: base + i for i, s in enumerate(blk.checks)}
+                for s, k in blk.checks.items():
+                    combos[slot[s]] = tuple(base + pr.stab_map[x] for x in (k if isinstance(k, tuple) else (k,)))
+            else:
+                slot = {s: base + pr.stab_map[k] for s, k in blk.checks.items()}
+            cis = list(slot.values())
             ci0 = min(cis)
             syn_prep, flag_prep = ('RX', 'R') if ctype == 'X' else ('R', 'RX')
             syn_meas, flag_meas = ('MX', 'M') if ctype == 'X' else ('M', 'MX')
@@ -80,7 +88,7 @@ def build(pr: PublishedRound) -> PhysicalProgram:
                 assert frozenset((node(a), node(b))) in E, f'{pr.name}: {a}-{b} is not a coupler'
                 ops.append(Op('CX', (node(a), node(b)), tag=f'c{ci0}.i{i}', kind='direct'))
             for s, k in blk.checks.items():
-                ci = base + pr.stab_map[k]
+                ci = slot[s]
                 ops.append(Op(syn_meas, (node(s),), tag=f'c{ci}', key=f'syn{ci}'))
                 syn_keys[ci] = f'syn{ci}'
             fk = []
@@ -89,8 +97,10 @@ def build(pr: PublishedRound) -> PhysicalProgram:
                 fk.append(f'flag{ci0}{f}')
             flag_keys[ci0] = flag_keys[ci0] + tuple(fk)
     data = {pr.data_map[int(k[1:])]: v for k, v in pr.layout.items() if k.startswith('d')}
-    return PhysicalProgram(ops, pr.n_nodes, data, dict(data), tuple(syn_keys), tuple(flag_keys),
-                           meta={'published': pr.name})
+    meta = {'published': pr.name}
+    if combos:
+        meta['syn_checks'] = combos
+    return PhysicalProgram(ops, pr.n_nodes, data, dict(data), tuple(syn_keys), tuple(flag_keys), meta=meta)
 
 
 # --------------------------------------------------------------------------
@@ -197,3 +207,28 @@ def lao_c1(choice: tuple[int, int, int]) -> PublishedRound:
     blocks = tuple(lao_c1_readings(k)[i][1] for k, i in enumerate(choice))
     return PublishedRound(f'Lao & Almudever 2020, Steane-c1-L2 (Fig. 8a), reading {choice}', 'IBM-20',
                           IBM20_EDGES, 20, LAO_C1_LAYOUT, LAO_DATA_MAP, LAO_STAB_MAP, blocks)
+
+
+# --------------------------------------------------------------------------
+# Poor, Rodatz & Kissinger 2025 (arXiv:2511.13700v2), primary FT circuit, Fig. 2a / 4a
+# --------------------------------------------------------------------------
+# Same qubit labels and stabilizers as Rodriguez-Blanco et al. (their Fig. 1).  Three ancillas read
+# out S1*S3, S3 and S1*S2; F is the flag.  No hardware is assumed, so the coupling graph is complete.
+POOR_BLOCK = Block({'A1': (0, 2), 'A2': (2,), 'A3': (0, 1)}, ('F',),
+                   (('d4', 'A2'), ('d6', 'A3'), ('d7', 'A1'), ('F', 'A3'), ('F', 'A2'), ('A3', 'A1'),
+                    ('A1', 'A2'), ('d1', 'A1'), ('A2', 'A3'), ('A1', 'A3'), ('F', 'A1'), ('d2', 'A1'),
+                    ('d3', 'A2'), ('d5', 'A3')), 'Z')
+_POOR_NAMES = [f'd{i}' for i in range(1, 8)] + ['A1', 'A2', 'A3', 'F']
+POOR = PublishedRound('Poor, Rodatz & Kissinger 2025, primary circuit (Fig. 2a)', 'all-to-all',
+                      tuple((i, j) for i in range(11) for j in range(i + 1, 11)), 11,
+                      {n: i for i, n in enumerate(_POOR_NAMES)}, RB_DATA_MAP, RB_STAB_MAP, (POOR_BLOCK,))
+
+
+def interaction_graph(pr: PublishedRound):
+    """Qubits as nodes, an edge for every pair that shares a CNOT."""
+    import networkx as nx
+    g = nx.Graph()
+    for blk in pr.blocks:
+        g.add_edges_from(blk.gates)
+    return g
+

@@ -72,6 +72,19 @@ def free_shapes(k: int) -> list[tuple]:
     return sorted(out)
 
 
+def connected_subsets(G: nx.Graph, k: int, within=None) -> list[tuple]:
+    """All connected k-node subsets of G (optionally only using nodes in `within`)."""
+    allowed = set(within if within is not None else G.nodes)
+    out = set()
+    for s in sorted(allowed):
+        frontier = {frozenset([s])}
+        for _ in range(k - 1):
+            frontier = {S | {w} for S in frontier for v in S for w in G[v]
+                        if w in allowed and w not in S and w > s}
+        out |= frontier
+    return sorted(tuple(sorted(S)) for S in out)
+
+
 def suffix_maps(ops, k):
     """M[g][a]: ancilla bitmask that a bit injected at ancilla a in gap g ends on."""
     L = len(ops); M = [None] * (L + 1)
@@ -122,6 +135,40 @@ def _proj(v, nonroot):
     return sum(((v >> j) & 1) << t for t, j in enumerate(nonroot))
 
 
+def readout_bases(m: int) -> list[tuple]:
+    """Images (t0, t1, t2) of the three check syndromes in the read-out space GF(2)^m of the m
+    non-flag ancillas: read-out j measures the product of the checks i with bit j of t_i set.
+
+    Read-outs may be any stabilizer products (as in Poor, Rodatz & Kissinger's circuit) as long as
+    the syndrome can be recovered.  Only their 3-dimensional image W matters: a change of basis
+    inside W is a linear map T on syndromes, and every T in GL(3,2) is induced by an automorphism of
+    the Steane code (the data permutation sending column c(q) to T c(q)).  Data placement is already
+    optimized over all permutations, and the linear targets and hook conditions transform covariantly,
+    so one basis per W covers every case: m = 3 has one W, m = 4 has 15 (one or more read-outs are
+    then redundant or always 0)."""
+    if m == 3:
+        return [(1, 2, 4)]
+    out = []
+    for u in range(1, 1 << m):
+        W = [x for x in range(1, 1 << m) if bin(x & u).count('1') % 2 == 0]
+        basis, span = [], {0}
+        for x in W:
+            if x not in span:
+                basis.append(x); span |= {y ^ x for y in span}
+            if len(basis) == 3:
+                break
+        out.append(tuple(basis))
+    return out
+
+
+def _target(T, col):
+    x = 0
+    for i in range(3):
+        if (col >> i) & 1:
+            x ^= T[i]
+    return x
+
+
 # --------------------------------------------------------------------------
 # 1. Linear stage
 # --------------------------------------------------------------------------
@@ -137,14 +184,15 @@ def linear_records(G: nx.Graph, anc_nodes, L: int, B: int):
     cache = {}; recs = []
 
     def cost_of(root, hist):
+        if len(free) < 7:                     # not enough neighbours for the data
+            return 99
         nonroot = [i for i in range(k) if i != root]
         offered = tuple(frozenset(_proj(v, nonroot) for v in hist[i]) for i in range(k))
         key = (root, offered)
         if key not in cache:
             best = 99
-            for synp in itertools.permutations(range(len(nonroot)), 3):
-                tgt = lambda col: sum(((col >> i) & 1) << synp[i] for i in range(3))
-                cm = [[_min_cost(tuple(v for a in adj[n] for v in offered[a]), tgt(COLUMNS[q]), 3)
+            for T in readout_bases(len(nonroot)):
+                cm = [[_min_cost(tuple(v for a in adj[n] for v in offered[a]), _target(T, COLUMNS[q]), 3)
                        for n in free] for q in range(7)]
                 r, c = linear_sum_assignment(cm)
                 best = min(best, sum(cm[q][j] for q, j in zip(r, c)))
@@ -188,7 +236,7 @@ def _slot_combos(slots, target, maxr):
 # 2. Exact test of necessary fault-tolerance conditions
 # --------------------------------------------------------------------------
 def hook_feasible(G: nx.Graph, anc_nodes, ops, root: int, B: int, return_solution=False):
-    """Is there a syndrome assignment, data placement and coupling choice with at most B CNOTs
+    """Is there a read-out assignment, data placement and coupling choice with at most B CNOTs
     in the block that passes the gap-boundary hook conditions?  CP-SAT, exact."""
     from ortools.sat.python import cp_model
     k = len(anc_nodes); L = len(ops); budget = B - L
@@ -204,8 +252,8 @@ def hook_feasible(G: nx.Graph, anc_nodes, ops, root: int, B: int, return_solutio
     positions = sorted(Z)
     flagged = {pos: (Z[pos][L] >> root) & 1 for pos in positions}
     maxr = budget - 6
-    for synp in itertools.permutations(range(len(nonroot)), 3):
-        tgt = lambda col: sum(((col >> i) & 1) << synp[i] for i in range(3))
+    for T in readout_bases(len(nonroot)):
+        tgt = lambda col: _target(T, col)
         opts = []
         for n in free:
             slots = [((a, g), _proj(M[g][a], nonroot)) for a in adj[n] for g in range(L + 1)]
@@ -258,7 +306,7 @@ def hook_feasible(G: nx.Graph, anc_nodes, ops, root: int, B: int, return_solutio
             for i, o in enumerate(opts):
                 if solver.Value(y[i]):
                     choice[o[0]] = o[2]; place[o[0]] = o[1]
-            return synp, place, choice
+            return T, place, choice
         if st == cp_model.UNKNOWN:
             raise RuntimeError('CP-SAT timed out')
     return False
@@ -274,7 +322,7 @@ class ParallelDesign:
     anc: tuple                  # ancilla nodes (index order used by ops)
     root: int                   # index into anc
     ops: tuple                  # ((control idx, target idx), ...) ancilla CNOTs in time order
-    synp: tuple                 # check i is read out on nonroot ancilla synp[i]
+    basis: tuple                # read-out basis (see readout_bases): non-root ancilla j reads the checks i with bit j of basis[i]
     place: dict                 # data index -> node
     choice: dict                # data index -> ((anc idx, gap), ...)
     order: dict = field(default_factory=dict)   # (anc idx, gap) -> data order there
@@ -308,7 +356,10 @@ class ParallelDesign:
             raise NotImplementedError('only designs whose non-root ancillas are all syndrome qubits')
         layout = {f'd{q + 1}': n for q, n in self.place.items()}
         layout.update({f'a{n}': n for n in self.anc})
-        checks = {f'a{self.anc[nonroot[self.synp[i]]]}': i for i in range(3)}
+        checks = {}
+        for j in range(3):
+            combo = tuple(i for i in range(3) if (self.basis[i] >> j) & 1)
+            checks[f'a{self.anc[nonroot[j]]}'] = combo[0] if len(combo) == 1 else combo
         blk = Block(checks, (f'a{self.anc[self.root]}',), self.gates(), 'Z')
         return PublishedRound(name, f'{self.rows}x{self.cols} grid', self.edges, self.rows * self.cols, layout,
                               {q + 1: q for q in range(7)}, {0: 0, 1: 1, 2: 2}, (blk,))
@@ -329,7 +380,7 @@ class ParallelDesign:
         rs = [n // C0 for n in nodes]; cs = [n % C0 for n in nodes]
         r0, c0 = min(rs), min(cs); R, C = max(rs) - r0 + 1, max(cs) - c0 + 1
         f = lambda n: (n // C0 - r0) * C + (n % C0 - c0)
-        return ParallelDesign(R, C, tuple(f(n) for n in self.anc), self.root, self.ops, self.synp,
+        return ParallelDesign(R, C, tuple(f(n) for n in self.anc), self.root, self.ops, self.basis,
                               {q: f(n) for q, n in self.place.items()}, self.choice, self.order)
 
 
@@ -355,7 +406,7 @@ def certify(design: ParallelDesign, options: dict, tries: int = 60, max_choice: 
         for q, slots in choice.items():
             for s in slots:
                 per.setdefault(s, []).append(q)
-        d = ParallelDesign(design.rows, design.cols, design.anc, design.root, design.ops, design.synp,
+        d = ParallelDesign(design.rows, design.cols, design.anc, design.root, design.ops, design.basis,
                            design.place, choice, {s: rng.sample(v, len(v)) for s, v in per.items()})
         try:
             if check_program(d.program(), explain=False).passed:
@@ -382,7 +433,7 @@ def _hooks_ok(Z, L, root, choice):
 
 def placements(G: nx.Graph, anc_nodes, ops, root: int, B: int):
     """Cheapest data placement per syndrome assignment with block cost <= B:
-    [(cost, synp, place, options)] where options[q] lists the minimal slot sets."""
+    [(cost, basis, place, options)] where options[q] lists the minimal slot sets."""
     from scipy.optimize import linear_sum_assignment
     k = len(anc_nodes); L = len(ops); M = suffix_maps(ops, k)
     if M[0][root] & ~(1 << root):
@@ -391,8 +442,10 @@ def placements(G: nx.Graph, anc_nodes, ops, root: int, B: int):
     free = sorted({n for a in anc_nodes for n in G[a] if n not in anc_nodes})
     adj = {n: [i for i, a in enumerate(anc_nodes) if G.has_edge(a, n)] for n in free}
     out = []
-    for synp in itertools.permutations(range(len(nonroot)), 3):
-        tgt = lambda col: sum(((col >> i) & 1) << synp[i] for i in range(3))
+    if len(free) < 7:
+        return out
+    for T in readout_bases(len(nonroot)):
+        tgt = lambda col: _target(T, col)
         cost = []; opts = {}
         for q in range(7):
             row = []
@@ -410,7 +463,7 @@ def placements(G: nx.Graph, anc_nodes, ops, root: int, B: int):
         tot = L + sum(cost[q][j] for q, j in zip(rr, cc))
         if tot <= B:
             place = {int(q): free[j] for q, j in zip(rr, cc)}
-            out.append((tot, synp, place, {q: opts[(q, place[q])] for q in range(7)}))
+            out.append((tot, T, place, {q: opts[(q, place[q])] for q in range(7)}))
     return out
 
 
@@ -424,7 +477,7 @@ def placements(G: nx.Graph, anc_nodes, ops, root: int, B: int):
 SQUARE_14 = ParallelDesign(
     rows=4, cols=4, anc=(5, 6, 9, 10), root=0,
     ops=((0, 1), (0, 2), (1, 3), (0, 1), (2, 3), (0, 2)),
-    synp=(0, 1, 2),
+    basis=(1, 2, 4),
     place={0: 1, 1: 4, 2: 2, 3: 7, 4: 8, 5: 13, 6: 11},
     choice={0: ((0, 1), (0, 5)), 1: ((0, 3),), 2: ((1, 0),), 3: ((1, 5),), 4: ((2, 4),), 5: ((2, 6),), 6: ((3, 3),)},
     order={})
