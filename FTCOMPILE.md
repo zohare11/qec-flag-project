@@ -19,10 +19,13 @@ Stim circuit      --single_fault_check-->  pass/fail + fault witnesses
 | `ftcompile/repair.py` | witness-guided repair: change the path of the routes that appear in fault witnesses until the check passes |
 | `ftcompile/decode.py` | order-2 maximum-likelihood lookup decoder and logical-error sampling |
 | `ftcompile/exact.py` | exact repairability oracle: per-route fault signatures -> CP-SAT model over path choices (feasible? fewest route changes? fewest CNOTs?) |
+| `ftcompile/placement.py` | the same oracle made fast enough for placement search: placement-independent Stim tail maps + bridge residual tables |
 | `run_ftcompile_case.py` | the case study (writes `runs/ftcompile_steane_grid/summary.md`) |
 | `run_ftcompile_exact.py` | oracle over all 96 rounds, compared with greedy repair (writes `exact_summary.md`; run the case study first) |
+| `run_ftcompile_placement.py` | placement search on the 3x4 grid (writes `runs/ftcompile_placement/summary.md`) |
 | `tests/test_ftcompile.py` | bridge identity, agreement with the old verifier, repair, Qiskit flag stripping, decoder sanity |
 | `tests/test_ftcompile_exact.py` | the route decomposition is exact; oracle solutions verify; an impossible round is reported |
+| `tests/test_ftcompile_placement.py` | fast evaluator matches full Stim on random placements; placement changes repairability |
 
 **Single-fault FT** = after one noisy round and an ideal final read-out, no single fault (or single
 incoming data error) shares a detector signature with another single event that has a different
@@ -42,4 +45,5 @@ python -m pytest -q tests/test_ftcompile.py   # ~10 s
 python run_ftcompile_case.py --quick          # ~1 min smoke run
 python run_ftcompile_case.py                  # full case study, several minutes
 python run_ftcompile_exact.py                 # exact oracle on all 96 rounds, ~5-10 minutes
+python run_ftcompile_placement.py             # placement search, ~30-60 minutes (--quick: ~3 minutes)
 ```
