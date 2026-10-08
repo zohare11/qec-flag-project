@@ -48,7 +48,7 @@ def schedules(ds, depth, period, val):
     return out
 
 
-def run(ds, depth, period=1, offset=1, max_iter=3000, k=30, time_per=120, verbose=True):
+def run(ds, depth, period=1, offset=1, max_iter=3000, k=30, time_per=120, verbose=True, workers=2):
     from ortools.sat.python import cp_model
     m = cp_model.CpModel()
     tv = {}
@@ -111,7 +111,7 @@ def run(ds, depth, period=1, offset=1, max_iter=3000, k=30, time_per=120, verbos
 
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = time_per
-    solver.parameters.num_workers = 2
+    solver.parameters.num_workers = workers
     t0 = time.time()
     for it in range(max_iter):
         st = solver.Solve(m)

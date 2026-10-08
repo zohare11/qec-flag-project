@@ -19,7 +19,7 @@ from .lattice import lattice, schedule_from_colors
 
 
 def search(d, free='all', target=None, steps=6, flag=False, max_iter=5000, time_per=60, k=30,
-           seed_kf=True, verbose=True, fixed=None):
+           seed_kf=True, verbose=True, fixed=None, workers=2):
     """free: 'all' | 'boundary' (weight-4 plaquettes only) | 'near' (also hexagons touching them);
     the rest keep the Kishony-Fowler schedule (or `fixed`)."""
     from ortools.sat.python import cp_model
@@ -100,7 +100,7 @@ def search(d, free='all', target=None, steps=6, flag=False, max_iter=5000, time_
 
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = time_per
-    solver.parameters.num_workers = 2
+    solver.parameters.num_workers = workers
     t0 = time.time()
     for it in range(max_iter):
         st = solver.Solve(m)
