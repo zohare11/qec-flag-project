@@ -1,0 +1,433 @@
+{
+ "d": 9,
+ "circuit_distance": 8,
+ "found_by": "colorcode.search.search(9, target=8)",
+ "plaquettes": [
+  {
+   "center": [
+    0,
+    -2
+   ],
+   "color": "blue",
+   "steps": {
+    "TR": 2,
+    "R": 4,
+    "BR": 5,
+    "BL": 6
+   }
+  },
+  {
+   "center": [
+    3,
+    -3
+   ],
+   "color": "green",
+   "steps": {
+    "L": 1,
+    "TR": 3,
+    "R": 4,
+    "TL": 6
+   }
+  },
+  {
+   "center": [
+    3,
+    -1
+   ],
+   "color": "red",
+   "steps": {
+    "L": 1,
+    "BR": 2,
+    "TL": 3,
+    "TR": 4,
+    "BL": 5,
+    "R": 6
+   }
+  },
+  {
+   "center": [
+    3,
+    1
+   ],
+   "color": "blue",
+   "steps": {
+    "R": 3,
+    "BL": 4,
+    "BR": 5,
+    "TR": 6
+   }
+  },
+  {
+   "center": [
+    6,
+    -2
+   ],
+   "color": "blue",
+   "steps": {
+    "TL": 1,
+    "R": 2,
+    "BL": 3,
+    "BR": 4,
+    "TR": 5,
+    "L": 6
+   }
+  },
+  {
+   "center": [
+    6,
+    0
+   ],
+   "color": "green",
+   "steps": {
+    "TR": 1,
+    "TL": 2,
+    "L": 3,
+    "BR": 4,
+    "BL": 5,
+    "R": 6
+   }
+  },
+  {
+   "center": [
+    6,
+    2
+   ],
+   "color": "red",
+   "steps": {
+    "BL": 1,
+    "BR": 2,
+    "TR": 3,
+    "TL": 4,
+    "L": 5,
+    "R": 6
+   }
+  },
+  {
+   "center": [
+    6,
+    4
+   ],
+   "color": "blue",
+   "steps": {
+    "TR": 3,
+    "BR": 4,
+    "BL": 5,
+    "R": 6
+   }
+  },
+  {
+   "center": [
+    9,
+    -3
+   ],
+   "color": "green",
+   "steps": {
+    "L": 1,
+    "TR": 3,
+    "R": 5,
+    "TL": 6
+   }
+  },
+  {
+   "center": [
+    9,
+    -1
+   ],
+   "color": "red",
+   "steps": {
+    "L": 1,
+    "TR": 2,
+    "BL": 3,
+    "TL": 4,
+    "R": 5,
+    "BR": 6
+   }
+  },
+  {
+   "center": [
+    9,
+    1
+   ],
+   "color": "blue",
+   "steps": {
+    "TL": 1,
+    "R": 2,
+    "BL": 3,
+    "L": 4,
+    "BR": 5,
+    "TR": 6
+   }
+  },
+  {
+   "center": [
+    9,
+    3
+   ],
+   "color": "green",
+   "steps": {
+    "R": 1,
+    "BL": 2,
+    "BR": 3,
+    "TL": 4,
+    "L": 5,
+    "TR": 6
+   }
+  },
+  {
+   "center": [
+    9,
+    5
+   ],
+   "color": "red",
+   "steps": {
+    "TL": 1,
+    "L": 2,
+    "BR": 3,
+    "TR": 4,
+    "BL": 5,
+    "R": 6
+   }
+  },
+  {
+   "center": [
+    9,
+    7
+   ],
+   "color": "blue",
+   "steps": {
+    "R": 1,
+    "BR": 2,
+    "TR": 5,
+    "BL": 6
+   }
+  },
+  {
+   "center": [
+    12,
+    -2
+   ],
+   "color": "blue",
+   "steps": {
+    "TL": 1,
+    "L": 2,
+    "BR": 3,
+    "BL": 4,
+    "TR": 5,
+    "R": 6
+   }
+  },
+  {
+   "center": [
+    12,
+    0
+   ],
+   "color": "green",
+   "steps": {
+    "L": 1,
+    "BL": 2,
+    "R": 3,
+    "TL": 4,
+    "TR": 5,
+    "BR": 6
+   }
+  },
+  {
+   "center": [
+    12,
+    2
+   ],
+   "color": "red",
+   "steps": {
+    "TR": 1,
+    "L": 2,
+    "BR": 3,
+    "TL": 4,
+    "BL": 5,
+    "R": 6
+   }
+  },
+  {
+   "center": [
+    12,
+    4
+   ],
+   "color": "blue",
+   "steps": {
+    "R": 1,
+    "TL": 2,
+    "BL": 3,
+    "L": 4,
+    "BR": 5,
+    "TR": 6
+   }
+  },
+  {
+   "center": [
+    12,
+    6
+   ],
+   "color": "green",
+   "steps": {
+    "BL": 1,
+    "R": 2,
+    "TL": 3,
+    "BR": 4,
+    "L": 5,
+    "TR": 6
+   }
+  },
+  {
+   "center": [
+    12,
+    8
+   ],
+   "color": "red",
+   "steps": {
+    "TL": 1,
+    "BL": 4,
+    "BR": 5,
+    "L": 6
+   }
+  },
+  {
+   "center": [
+    15,
+    -3
+   ],
+   "color": "green",
+   "steps": {
+    "L": 1,
+    "TR": 2,
+    "R": 3,
+    "TL": 4
+   }
+  },
+  {
+   "center": [
+    15,
+    -1
+   ],
+   "color": "red",
+   "steps": {
+    "BL": 1,
+    "L": 2,
+    "TR": 3,
+    "BR": 4,
+    "R": 5,
+    "TL": 6
+   }
+  },
+  {
+   "center": [
+    15,
+    1
+   ],
+   "color": "blue",
+   "steps": {
+    "TL": 1,
+    "TR": 2,
+    "R": 3,
+    "BL": 4,
+    "BR": 5,
+    "L": 6
+   }
+  },
+  {
+   "center": [
+    15,
+    3
+   ],
+   "color": "green",
+   "steps": {
+    "BR": 1,
+    "BL": 2,
+    "TL": 3,
+    "R": 4,
+    "TR": 5,
+    "L": 6
+   }
+  },
+  {
+   "center": [
+    15,
+    5
+   ],
+   "color": "red",
+   "steps": {
+    "BR": 2,
+    "L": 3,
+    "TL": 4,
+    "BL": 6
+   }
+  },
+  {
+   "center": [
+    18,
+    -2
+   ],
+   "color": "blue",
+   "steps": {
+    "R": 1,
+    "BR": 2,
+    "L": 3,
+    "BL": 4,
+    "TR": 5,
+    "TL": 6
+   }
+  },
+  {
+   "center": [
+    18,
+    0
+   ],
+   "color": "green",
+   "steps": {
+    "BL": 1,
+    "BR": 2,
+    "TR": 3,
+    "R": 4,
+    "TL": 5,
+    "L": 6
+   }
+  },
+  {
+   "center": [
+    18,
+    2
+   ],
+   "color": "red",
+   "steps": {
+    "BR": 2,
+    "L": 3,
+    "TL": 5,
+    "BL": 6
+   }
+  },
+  {
+   "center": [
+    21,
+    -3
+   ],
+   "color": "green",
+   "steps": {
+    "TR": 2,
+    "R": 3,
+    "TL": 5,
+    "L": 6
+   }
+  },
+  {
+   "center": [
+    21,
+    -1
+   ],
+   "color": "red",
+   "steps": {
+    "BR": 1,
+    "TL": 2,
+    "BL": 3,
+    "L": 4
+   }
+  }
+ ]
+}
