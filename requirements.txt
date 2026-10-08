@@ -5,3 +5,5 @@ qiskit>=2.0  # ordinary-compiler baseline (SABRE routing) in ftcompile
 networkx>=3.0  # path enumeration in ftcompile
 ortools>=9.10  # exact repairability oracle (CP-SAT) in ftcompile/exact.py
 scipy>=1.10
+pycryptosat>=5.11
+python-sat>=1.8.dev0

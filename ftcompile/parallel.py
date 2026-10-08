@@ -34,6 +34,7 @@ next to it, that XOR to its column (which checks contain it).  So:
 from __future__ import annotations
 
 import itertools
+from itertools import combinations
 import random
 from dataclasses import dataclass, field
 from functools import lru_cache
@@ -145,9 +146,12 @@ def readout_bases(m: int) -> list[tuple]:
     the Steane code (the data permutation sending column c(q) to T c(q)).  Data placement is already
     optimized over all permutations, and the linear targets and hook conditions transform covariantly,
     so one basis per W covers every case: m = 3 has one W, m = 4 has 15 (one or more read-outs are
-    then redundant or always 0)."""
+    then redundant or always 0).  For m > 4 only the coordinate choices are returned (three
+    ancillas read one check each, the others read 0); redundant product read-outs are not covered."""
     if m == 3:
         return [(1, 2, 4)]
+    if m > 4:                       # many ancillas: three read out one check each, the rest read 0
+        return [(1 << a, 1 << b, 1 << c) for a, b, c in combinations(range(m), 3)]
     out = []
     for u in range(1, 1 << m):
         W = [x for x in range(1, 1 << m) if bin(x & u).count('1') % 2 == 0]

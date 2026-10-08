@@ -22,18 +22,23 @@ Stim circuit      --single_fault_check-->  pass/fail + fault witnesses
 | `ftcompile/placement.py` | the same oracle made fast enough for placement search: placement-independent Stim tail maps + bridge residual tables |
 | `ftcompile/gadgets.py` | flag-bridge gadgets (data may couple to a flag), certified patterns, exact minimum-CNOT layouts with CP-SAT on grids or any coupling graph |
 | `ftcompile/parallel.py` | parallel blocks (three checks at once, shared ancillas, one flag): exhaustive search over ancilla-CNOT sequences, exact CP-SAT hook test, Stim certification; the 28-CNOT square-grid round |
+| `ftcompile/synth_sat.py` | exact synthesis of a whole parallel block as SAT with XOR clauses (CryptoMiniSat): ancilla CNOTs, data couplings, data placement and the hook conditions at every fault position |
+| `ftcompile/synth.py` | the same model in CP-SAT (slower; kept for comparison) and the converter from a synthesized block to a full round |
+| `ftcompile/heavyhex.py` | IBM-style heavy-hex coupling graphs and pictures |
 | `ftcompile/published.py` | published hand-designed rounds rebuilt gate by gate: Rodriguez-Blanco et al. 2025 (4x4 citadel), Lao & Almudever 2020 (IBM-20, serial and parallel) |
 | `run_ftcompile_case.py` | the case study (writes `runs/ftcompile_steane_grid/summary.md`) |
 | `run_ftcompile_exact.py` | oracle over all 96 rounds, compared with greedy repair (writes `exact_summary.md`; run the case study first) |
 | `run_ftcompile_placement.py` | placement search on the 3x4 grid (writes `runs/ftcompile_placement/summary.md`) |
 | `run_ftcompile_flagbridge.py` | flag-bridge layouts, exact optima on several grids (writes `runs/ftcompile_flagbridge/summary.md`) |
 | `run_ftcompile_parallel.py` | parallel blocks on a square grid: 28-CNOT round, lower bound, comparison (writes `runs/ftcompile_parallel/summary.md`) |
+| `run_ftcompile_heavyhex.py` | heavy-hex first results: Qiskit routing breaks FT, no routing-free round with 1-2 flags per check, parallel blocks need 9+ ancillas (writes `runs/ftcompile_heavyhex/summary.md`) |
 | `run_ftcompile_published.py` | the published rounds checked and compared with the exact optima on the same hardware (writes `runs/ftcompile_published/summary.md`) |
 | `tests/test_ftcompile.py` | bridge identity, agreement with the old verifier, repair, Qiskit flag stripping, decoder sanity |
 | `tests/test_ftcompile_exact.py` | the route decomposition is exact; oracle solutions verify; an impossible round is reported |
 | `tests/test_ftcompile_placement.py` | fast evaluator matches full Stim on random placements; placement changes repairability |
 | `tests/test_ftcompile_gadgets.py` | flag-bridge patterns measure correctly, window rule enforced, 3x4 optimum is 40 and verifies |
 | `tests/test_ftcompile_parallel.py` | the 28-CNOT round is FT; the hook test rejects 13; the model reproduces Lao's block |
+| `tests/test_ftcompile_synth.py` | the SAT model accepts the known 14-CNOT block (Stim agrees); heavy-hex reach bound |
 | `tests/test_ftcompile_published.py` | the rebuilt published rounds are FT with the stated CNOT counts; IBM-20 reaches 36 with 2 ancillas |
 
 **Single-fault FT** = after one noisy round and an ideal final read-out, no single fault (or single
@@ -57,5 +62,6 @@ python run_ftcompile_exact.py                 # exact oracle on all 96 rounds, ~
 python run_ftcompile_placement.py             # placement search, ~30-60 minutes (--quick: ~3 minutes)
 python run_ftcompile_flagbridge.py            # flag-bridge optima, ~5 minutes
 python run_ftcompile_published.py             # published rounds vs exact optima, ~2 minutes
-python run_ftcompile_parallel.py              # parallel blocks, ~5 minutes (--full: lower bound, ~40 minutes)
+python run_ftcompile_parallel.py              # parallel blocks, ~5 minutes (--full: lower bound, ~20 minutes)
+python run_ftcompile_heavyhex.py              # heavy-hex first results, ~3 minutes
 ```

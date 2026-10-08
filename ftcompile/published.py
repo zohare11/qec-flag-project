@@ -35,6 +35,7 @@ class Block:
     flags: tuple          # flag ancilla names
     gates: tuple          # ((control, target), ...) as drawn
     convention: str       # 'X' or 'Z': the check type the gates are drawn for
+    zeros: tuple = ()     # extra ancillas prepared and read out like syndrome qubits that must read 0
 
 
 @dataclass(frozen=True)
@@ -82,6 +83,8 @@ def build(pr: PublishedRound) -> PhysicalProgram:
                 ops.append(Op(syn_prep, (node(s),), tag=f'c{ci0}'))
             for f in blk.flags:
                 ops.append(Op(flag_prep, (node(f),), tag=f'c{ci0}'))
+            for zq in blk.zeros:
+                ops.append(Op(syn_prep, (node(zq),), tag=f'c{ci0}'))
             for i, (a, b) in enumerate(blk.gates):
                 if ctype != blk.convention:
                     a, b = b, a
@@ -95,6 +98,9 @@ def build(pr: PublishedRound) -> PhysicalProgram:
             for f in blk.flags:
                 ops.append(Op(flag_meas, (node(f),), tag=f'c{ci0}', key=f'flag{ci0}{f}'))
                 fk.append(f'flag{ci0}{f}')
+            for zq in blk.zeros:
+                ops.append(Op(syn_meas, (node(zq),), tag=f'c{ci0}', key=f'zero{ci0}{zq}'))
+                fk.append(f'zero{ci0}{zq}')
             flag_keys[ci0] = flag_keys[ci0] + tuple(fk)
     data = {pr.data_map[int(k[1:])]: v for k, v in pr.layout.items() if k.startswith('d')}
     meta = {'published': pr.name}
