@@ -7,6 +7,9 @@
     # one family repeated along each edge: d - 1 for d = 11 and 13 at once
     python run_colorcode_search.py --family 11,13 --depth 4 --period 1
 
+    # with a flag qubit on every weight-4 boundary plaquette: can d = 11 reach 10?
+    python run_colorcode_search.py --d 11 --target 10 --flag
+
 Progress goes to stdout; a schedule that reaches the target is written to
 colorcode/schedules/ as JSON (one file per d) and re-checked with the exact distance.
 """
@@ -26,13 +29,15 @@ from colorcode.lattice import check_schedule, lattice, schedule_to_json  # noqa:
 OUT = ROOT / 'colorcode' / 'schedules'
 
 
-def save(d, sched, target, how):
+def save(d, sched, target, how, flag=False):
     data, plaq = lattice(d)
     check_schedule(plaq, sched)
+    hooks.FLAGGED = {i for i, p in enumerate(plaq) if len(p['sup']) == 4} if flag else set()
     below = hooks.has_logical(data, plaq, sched, target - 1)
     assert below is None, f'd={d}: found a logical below {target}'
+    meta = {'flags': 'one flag qubit per weight-4 plaquette, CNOTs at its two free steps'} if flag else {}
     path = OUT / f'd{d}_distance{target}_{how}.json'
-    path.write_text(schedule_to_json(d, plaq, sched, circuit_distance_at_least=target, found_by=how))
+    path.write_text(schedule_to_json(d, plaq, sched, circuit_distance_at_least=target, found_by=how, **meta))
     print(f'saved {path.relative_to(ROOT)} (no logical below {target})', flush=True)
 
 
@@ -44,6 +49,7 @@ def main():
     ap.add_argument('--depth', type=int, default=4)
     ap.add_argument('--period', type=int, default=1)
     ap.add_argument('--workers', type=int, default=4, help='CP-SAT threads')
+    ap.add_argument('--flag', action='store_true', help='flag qubit on every weight-4 plaquette')
     a = ap.parse_args()
     t0 = time.time()
     if a.family:
@@ -55,10 +61,10 @@ def main():
                 save(d, sched, d - 1, f'family_depth{a.depth}_period{a.period}')
     else:
         target = a.target or a.d - 1
-        r = search.search(a.d, target=target, time_per=3600, workers=a.workers)
+        r = search.search(a.d, target=target, time_per=3600, workers=a.workers, flag=a.flag)
         print('result', r['status'], 'iterations', r['iterations'], f'{time.time() - t0:.0f}s', flush=True)
         if r['status'] == 'FOUND':
-            save(a.d, r['sched'], target, 'search')
+            save(a.d, r['sched'], target, 'search_flag' if a.flag else 'search', flag=a.flag)
 
 
 if __name__ == '__main__':

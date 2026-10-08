@@ -34,7 +34,7 @@ def _sat(nd, cols, w, threads=2):
 def reduced(circuit, basis='Z'):
     dem = circuit.detector_error_model(decompose_errors=False)
     coords = dem.get_detector_coordinates()
-    keep_types = {1, 2} if basis == 'Z' else {0, 2}
+    keep_types = {1, 2, 4} if basis == 'Z' else {0, 2, 5}      # 4/5: flags catching X/Z hooks
     keep = sorted(k for k, c in coords.items() if int(c[3]) in keep_types)
     idx = {k: i for i, k in enumerate(keep)}
     sig, full = {}, []

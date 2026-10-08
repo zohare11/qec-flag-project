@@ -45,3 +45,14 @@ def test_d9_schedule_reaches_distance_8():
     assert d == 9
     assert hooks.has_logical(data, plaq, sched, 7) is None
     assert hooks.has_logical(data, plaq, sched, 8) is not None
+
+
+def test_flag_model_matches_stim_at_d5():
+    r = search.search(5, target=4, flag=True, verbose=False)     # sets hooks.FLAGGED
+    assert r['status'] == 'FOUND'
+    data, plaq = lattice(5)
+    assert hooks.static_distance(data, plaq, r['sched'], lo=3, hi=5)[0] == 4
+    hooks.FLAGGED = set()
+    c, *_ = memory_circuit(5, sched=r['sched'], noise='si1000', flags=True)
+    assert not verify.logical_within(c, 3)
+    assert verify.logical_within(c, 4)
